@@ -7,7 +7,7 @@ que esta actividad es introductoria y no busca que domines estas herramientas. V
 los siguientes pasos:
 
 1. Abre una versión actualizada de Google chrome o Microsogt edge.
-2. Abre en una pestaña este sitio [micro:bit editor](https://python.microbit.org/>).
+2. Abre en una pestaña este sitio [micro:bit editor](https://python.microbit.org/v/3).
 3. Copia en el editor el siguiente código:
 
 ``` py
