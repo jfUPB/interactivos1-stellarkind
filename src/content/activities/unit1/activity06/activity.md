@@ -1,4 +1,4 @@
-#### Herramientas y tecnologías (30 minutos)
+#### Herramientas y tecnologías
 
 **Enunciado**: en este curso vas a explorar los conceptos usando principalmente dos herramientas: 
 [micro:bit](https://microbit.org/) y [p5.js](https://p5js.org/). En esta actividad vas a 
