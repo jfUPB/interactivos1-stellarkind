@@ -37,8 +37,7 @@
       { "nombre": "actividad12", "estado": "No iniciada", "fase": "apply", "aprobado": "no" },
       { "nombre": "actividad13", "estado": "No iniciada", "fase": "reflect", "aprobado": "no" },
       { "nombre": "actividad14", "estado": "No iniciada", "fase": "reflect", "aprobado": "no" },
-      { "nombre": "actividad15", "estado": "No iniciada", "fase": "reflect", "aprobado": "no" },
-      { "nombre": "actividad16", "estado": "No iniciada", "fase": "reflect", "aprobado": "no" }
+      { "nombre": "actividad15", "estado": "No iniciada", "fase": "reflect", "aprobado": "no" }
     ]
   },
   {
