@@ -3,8 +3,8 @@
     "nombre": "Unidad 1",
     "actividades": [
       { "nombre": "actividad01", "estado": "Completada", "fase": "set", "aprobado": "no"},
-      { "nombre": "actividad02", "estado": "En progreso", "fase": "set", "aprobado": "no" },
-      { "nombre": "actividad03", "estado": "No iniciada", "fase": "seek", "aprobado": "no" },
+      { "nombre": "actividad02", "estado": "Completada", "fase": "set", "aprobado": "no" },
+      { "nombre": "actividad03", "estado": "En progreso", "fase": "seek", "aprobado": "no" },
       { "nombre": "actividad04", "estado": "No iniciada", "fase": "seek", "aprobado": "no" },
       { "nombre": "actividad05", "estado": "No iniciada", "fase": "seek", "aprobado": "no" },
       { "nombre": "actividad06", "estado": "No iniciada", "fase": "seek", "aprobado": "no" },
