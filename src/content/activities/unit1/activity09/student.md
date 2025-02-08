@@ -32,3 +32,4 @@ function draw() {
   }
 }
 ```
+![image](../../../../assets/sfi-u1-a09-i1.png)  
