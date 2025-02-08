@@ -32,4 +32,5 @@ function draw() {
   }
 }
 ```
+### Captura de pantalla del patrón visual generado
 ![image](../../../../assets/sfi-u1-a09-i1.png)  
