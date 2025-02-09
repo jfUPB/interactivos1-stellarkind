@@ -51,15 +51,11 @@ function draw()
 #### Código en micro:bit Python:
 ``` phyton
 from microbit import *
-
-# Inicializa la comunicación UART a 115200 baudios
 uart.init(baudrate=115200)
 
 while True:
     if button_a.was_pressed():
-        # Envía el carácter "A" seguido de salto de línea
         uart.write("A\n")
-        # Opcional: muestra un ícono para indicar que se presionó el botón
         display.show(Image.HEART)
     sleep(100)
 ```
