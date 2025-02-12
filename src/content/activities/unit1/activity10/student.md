@@ -2,62 +2,74 @@
 ### Programa en p5.js que muestre un cuadrado en la pantalla y un botón para que, al presionarlo, cambie el color del cuadrado en p5.js.
 #### Código en p5.js:
 ``` js
-let serial; 
-let squareColor; 
+let port;
+let connectBtn;
+let changeColorBtn;
+let squareColor;
 
 function setup() {
-  createCanvas(400, 400);
-  squareColor = color(255, 0, 0); // Color inicial es rojo
-  
-  serial = new p5.SerialPort();
-  serial.on('list', gotList);
-  serial.on('data', gotData);
-  
-  // Abrir el puerto serial (modifica el nombre del puerto según tu sistema)
-  // En Windows podría ser 'COM3'
-  serial.open('COM3'); 
+    createCanvas(400, 400);
+    background(220);
+    port = createSerial();
+
+    connectBtn = createButton('Connect to micro:bit');
+    connectBtn.position(80, 300);
+    connectBtn.mousePressed(connectBtnClick);
+
+    changeColorBtn = createButton('Change Color');
+    changeColorBtn.position(220, 300);
+    changeColorBtn.mousePressed(() => sendCommand('C'));
+
+    squareColor = color(255, 0, 0); // Color inicial: rojo
 }
 
-function gotList(portList) {
-  // Imprime la lista de puertos en la consola para ayudarte a identificar el correcto
-  for (let i = 0; i < portList.length; i++) {
-    console.log(i + " " + portList[i]);
-  }
-}
+function draw() {
+    background(220);
+    fill(squareColor);
+    rect(150, 150, 100, 100);
 
-function gotData() {
-  // Lee la línea recibida del puerto serial
-  let currentString = serial.readLine();
-  currentString = currentString.trim();
-  
-  if (currentString) {
-    console.log("Recibido: " + currentString);
-    
-    // Si se recibe el carácter "A", se cambia el color del cuadrado
-    if (currentString === "A") {
-      //genera un color aleatorio
-      squareColor = color(random(255), random(255), random(255));
+    if (port.availableBytes() > 0) {
+        let dataRx = port.read(1);
+        console.log("Recibido:", dataRx);
+        
+        if (dataRx == 'C') {
+            squareColor = color(random(255), random(255), random(255));
+        }
     }
-  }
+    if (!port.opened()) {
+        connectBtn.html('Connect to micro:bit');
+    } else {
+        connectBtn.html('Disconnect');
+    }
 }
-function draw()
-{
-  background(220);
-  fill(squareColor);
-  //DIbuja el cuadrado en el centro
-  rect(150, 150, 100, 100);
+
+function connectBtnClick() {
+    if (!port.opened()) {
+        port.open('MicroPython', 115200);
+    } else {
+        port.close();
+    }
+}
+function sendCommand(command) {
+    port.write(command);
+    console.log("Enviado:", command);
 }
 ```
-#### Código en micro:bit Python:
+#### Código en micro:bit Python:  
 ``` phyton
 from microbit import *
 uart.init(baudrate=115200)
 
 while True:
     if button_a.was_pressed():
-        uart.write("A\n")
-        display.show(Image.HEART)
-    sleep(100)
+        uart.write('C')
+    
+    if uart.any():
+        data = uart.read(1)
+        if data:
+            char = chr(data[0])
+            if char == 'C':
+                uart.write('C')
 ```
 Con estos programas al conectar el micro:bit al computador usando un cable USB y cargar en él el código se debería envíar un mensaje cuando se presiona un botón; 
 al mismo tiempo, ejecutando el programa en p5.js, que abrir el puerto serial (por ejemplo, 'COM3' o el que sea) y quedaría a la espera de datos; cuando presione 
