@@ -71,7 +71,4 @@ while True:
             if char == 'C':
                 uart.write('C')
 ```
-Con estos programas al conectar el micro:bit al computador usando un cable USB y cargar en él el código se debería envíar un mensaje cuando se presiona un botón; 
-al mismo tiempo, ejecutando el programa en p5.js, que abrir el puerto serial (por ejemplo, 'COM3' o el que sea) y quedaría a la espera de datos; cuando presione 
-el botón del micro:bit, este enviaría un mensaje por el puerto serial que el programa en p5.js detecta, y en respuesta cambiarís el color del cuadrado en la pantalla, 
-estableciendo así una comunicación directa y sencilla entre el micro:bit y la aplicación gráfica.
+se ejecuta el código en p5.js, y se establece la conexión con el micro:bit desde la interfaz de p5.js. Una vez conectado, al presionar el botón A (el de la izquierda) en el micro:bit, este envía el carácter 'C' a p5.js, lo que provoca un cambio en el color del cuadrado en la pantalla. De manera similar, si se presiona el botón en la interfaz de p5.js, se envía el mismo carácter 'C' al micro:bit, que lo reenvía a p5.js, permitiendo así el cambio de color del cuadrado desde ambas entradas. Este mecanismo de comunicación serial bidireccional garantiza que tanto el botón físico en el micro:bit como el botón en la interfaz web puedan controlar la apariencia del cuadrado en pantalla de manera sincronizada.
