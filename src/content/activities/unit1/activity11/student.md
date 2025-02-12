@@ -25,7 +25,7 @@ function setup() {
 function draw() {
     background(220);
     
-    fill(100, 150, 250);
+    fill(50, 230, 220);
     ellipse(circleX, height / 2, 50, 50);
 
     if (port.availableBytes() > 0) {
