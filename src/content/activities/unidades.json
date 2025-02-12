@@ -11,7 +11,7 @@
       { "nombre": "actividad07", "estado": "Completada", "fase": "apply", "aprobado": "no" },
       { "nombre": "actividad08", "estado": "Completada", "fase": "apply", "aprobado": "no" },
       { "nombre": "actividad09", "estado": "Completada", "fase": "apply", "aprobado": "no" },
-      { "nombre": "actividad10", "estado": "En progreso", "fase": "apply", "aprobado": "no" },
+      { "nombre": "actividad10", "estado": "Completada", "fase": "apply", "aprobado": "no" },
       { "nombre": "actividad11", "estado": "En progreso", "fase": "apply", "aprobado": "no" },
       { "nombre": "actividad12", "estado": "Completada", "fase": "apply", "aprobado": "no" },
       { "nombre": "actividad13", "estado": "En progreso", "fase": "reflect", "aprobado": "no" },
