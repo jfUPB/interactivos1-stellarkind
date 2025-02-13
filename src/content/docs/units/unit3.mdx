@@ -8,8 +8,25 @@ import unidades from '../../activities/unidades.json';
 
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
+## Introducción
+
+En esta unidad vas a seguir explorando la integración entre micro:bit y p5.js,  
+al tiempo que profundizarás en la técnica de programación con máquinas 
+de estado. Volverás a practicar dicha técnica con el micro:bit, pero 
+también en p5.js. 
+
+Te preguntarás ¿Por qué tanta insistencia del profe con esta técnica? Y la 
+razón es que ella te permitirá lograr en tus aplicaciones escalabilidad, 
+en términos de conconcurrencia, es decir, permitirá que una aplicación tenga 
+múltiples **TAREAS** haciendo al mismo tiempo varias cosas.
+
+Varias de las actividades de esta unidad te tomarán más de 30 minutos, por tanto, 
+nota que he reducido la cantidad de actividades.
 
 ## ¿Qué aprenderás en esta unidad?
+
+En esta fase, retomarás una de las actividades de la unidad anterior y la 
+escalarás usando máquinas de estado.
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -23,6 +40,10 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
 ## Investigación
 
+En esta fase, retomarás la actividad de la bomba de la unidad anterior y 
+ampliarás su funcionalidad. Además añadirás una nueva tarea que 
+te permitirá controlar el funcionamiento de la bomba de manera remota usando p5.js.
+
 {unit.actividades
   .filter(act => act.fase === "seek")
   .map(act => (
@@ -35,6 +56,12 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
 ## Aplicación
 
+En esta fase de aplicación pondrás a prueba lo aprendido hasta ahora. La 
+idea es que transfieras la técnica de programación basada en máquinas de 
+estados del micro:bit a p5.js. Vas a intercambiar los roles. Ahora la bomba 
+la construirás en p5.js. La controlarás en p5.js, pero también desde 
+el micro:bit usando comunicaciones seriales.
+
 {unit.actividades
   .filter(act => act.fase === "apply")
   .map(act => (
@@ -46,6 +73,12 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 }
 
 ## Consolidación y metacognición
+
+En esta última fase te voy a proponer que analices las ventajas 
+de la técnica de programación con máquinas de estado luego 
+de usarla repetidamente. Además, te pediré que observes tu proceso 
+hasta ahora y hagas los ajustes que consideres para continuar 
+de la mejor manera el curso.
 
 {unit.actividades
   .filter(act => act.fase === "reflect")
