@@ -64,7 +64,7 @@ Salidas:
   ```
   Este código enciende un dispositivo conectado al pin 0 durante un segundo y luego lo apaga.
   
-- **Reproducir sonidos (solo en micro:bit V2):** Emite tonos o melodías a través del zumbador incorporado.
+- **Reproducir sonidos (solo en micro:bit V2):** Emite tonos o melodías a través del parlantico incorporado.
   Función: _music.play()_
   Ejemplo:
   ``` python
