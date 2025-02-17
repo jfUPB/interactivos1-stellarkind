@@ -45,7 +45,7 @@ Salidas:
   Este código mide la temperatura y la muestra en la pantalla.  
   
 #### Funciones de salida:  
-- Mostrar imágenes en la matriz de LEDs: Muestra imágenes predefinidas o personalizadas.
+- **Mostrar imágenes en la pantalla de LEDs:** Muestra imágenes predefinidas o personalizadas.
   Función: _display.show()_  
   Ejemplo:  
   ``` python
@@ -53,7 +53,7 @@ Salidas:
   display.show(Image.HEART)
   ```
   Este código muestra un corazón en la pantalla del micro:bit.  
-- Encender o apagar un pin digital: Controla dispositivos externos conectados a los pines.  
+- **Encender o apagar un pin digital:** Controla dispositivos externos conectados a los pines.  
   Función: _pin0.write_digital(value)_
   Ejemplo:
   ``` python
@@ -63,6 +63,7 @@ Salidas:
   pin0.write_digital(0) 
   ```
   Este código enciende un dispositivo conectado al pin 0 durante un segundo y luego lo apaga.
+  
 - **Reproducir sonidos (solo en micro:bit V2):** Emite tonos o melodías a través del zumbador incorporado.
   Función: _music.play()_
   Ejemplo:
@@ -71,4 +72,4 @@ Salidas:
   import music
   music.play(music.PUNCHLINE)
   ```
-  ste código reproduce una melodía corta utilizando el zumbador del micro:bit V2.
+  Este código reproduce una melodía corta utilizando el parlantito del micro:bit V2.
