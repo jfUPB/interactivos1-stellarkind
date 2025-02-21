@@ -14,3 +14,8 @@ while True:
     display.show(Image.GIRAFFE)  # Muestra una jirafa
     sleep(1000)
 ```
+### Video
+<video width="640" height="360" controls>
+  <source src="https://github.com/jfUPB/interactivos1-stellarkind/blob/main/src/assets/SFIAct0206completada%20-%20Hecho%20con%20Clipchamp_1740176036380.mp4" type="video/mp4">
+  Tu navegador no soporta el elemento de video.
+</video>
