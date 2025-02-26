@@ -66,18 +66,10 @@ o qué mensaje se recibió.
 - Evento para shake: 'S'
 - Evento para botón touch: 'T'
 
-¿Cómo enviarás los eventos del serial? El editor de código del micro:bit tiene una 
-consola serial que te permitirá enviar mensajes al micro:bit. Puedes usar esta consola
-para enviar los eventos del puerto serial al micro:bit.
+¿Cómo enviarás los eventos del serial? 
 
-- Selecciona los tres puntos al lado del botón Send to micro:bit.
-- Selecciona Show serial.
-- Click en la terminal (es el espacio en blanco que aparece debajo del texto micro:bit
-ready to flash).
-- Presiona las teclas que quieras enviar al micro:bit: 'A', 'B', 'S' o 'T'.
-
-![Consola serial](../../../../assets/microbitEditorSerial.png)
-
+Puedes usar [esta aplicación](https://juanferfranco.github.io/serialTerminal/) que te permitirá enviar 
+datos por el puerto serial.
 
 **Entrega**: el código de tu programa. Y una explicación de cómo implementaste la funcionalidad 
 solicitada.
