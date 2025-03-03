@@ -74,3 +74,7 @@ while True:
             config_time = 20  # Se resetea el tiempo a su valor por defecto
 
 ```
+### Explicación implementación de la secuencia de desactivación:
+Primero, definí una lista que contiene los pasos necesarios para desactivar la bomba: ['button_a', 'button_b', 'button_a', 'shake']. Esto me ayuda a tener claro qué acción debe suceder en cada paso, para ello utilicé una variable llamada current_step para llevar un registro de en qué paso de la secuencia te encuentras. Esta variable comienza en cero y cada vez que se realiza una acción correcta, se incrementa en uno.
+Durante el estado de cuenta regresiva de la bomba, el programa está constantemente revisando si se preciona un botón o se sacude el microbit. Cada vez que el programa registra un input, el verifica si es la acción correcta según el paso en que te encuentras. Si la acción es correcta según la lista, current_step se incrementa.
+Si se siguen todos los pasos correctamente, current_step llegará al final de la lista. Cuando esto sucede, el programa sabe que se ingresó correctamente toda la secuencia y automáticamente pasa la bomba de nuevo al modo de configuración, lo que significa que la bomba está desactivada y puede empezar de nuevo el programa.
