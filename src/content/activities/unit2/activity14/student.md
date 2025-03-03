@@ -57,7 +57,7 @@
 - **Errores Encontrados:** El ícono Image.SKULL no se muestra correctamente.
 - **Corrección:** Agregamos un corto tiempo de espera luego de display.show(Image.SKULL) y music.play(music.WAWAWAWAA), para que este no se interrumpa prematuramente y se evidencie de forma correcta.
 
-### Vectores de prueba:  Código final corregido:
+### Código final corregido:
 ``` Python
 from microbit import *
 import utime
