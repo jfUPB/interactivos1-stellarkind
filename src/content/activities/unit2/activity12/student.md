@@ -80,4 +80,4 @@ while True:
         
         utime.sleep_ms(100)
 ```
-### Link a un video demostrando su funcionamiento básico
+### [Link a un video demostrando su funcionamiento básico](https://drive.google.com/file/d/1wz4r-RwWxToaF-jHnd37l1WCWAueMCGl/view?usp=sharing)
