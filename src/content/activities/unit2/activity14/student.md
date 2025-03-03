@@ -58,7 +58,8 @@
 - **Corrección:** Agregamos un corto tiempo de espera luego de display.show(Image.SKULL) y music.play(music.WAWAWAWAA), para que este no se interrumpa prematuramente y se evidencie de forma correcta.
 
 ### Código final corregido:
-``` Python
+
+``` py
 from microbit import *
 import utime
 import music
