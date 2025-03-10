@@ -16,7 +16,7 @@ vuelve a configuración. Si el tiempo llega a cero, la bomba explota y muestra u
     y reproduce un sonido fuerte. La bomba permanece en este estado hasta que se detecta un evento de reinicio (por ejemplo, el sensor touch o el mensaje 'T' por el puerto serial), momento en el cual se reinicia
      el sistema y vuelve al estado de configuración.
 ### Código del programa: 
-``` Python
+``` python
 from microbit import *
 import utime
 import music
