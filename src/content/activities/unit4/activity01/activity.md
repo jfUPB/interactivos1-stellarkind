@@ -4,7 +4,7 @@
 Esta actividad puede tomarte un poco más de una hora, ¿Vale? Todo 
 dependa de la curiosidad que tengas.
 
-**Enunciado**: te voy a mostrar algunos ejemplos interesantes y fuentes 
+🎯 **Enunciado**: te voy a mostrar algunos ejemplos interesantes y fuentes 
 de inspiración que pueden ser de utilidad a la hora de diseñar tus propias 
 aplicaciones interactivas con p5.js.
 
@@ -37,7 +37,7 @@ Otros sitios que te pueden servir de inspiración:
 - [Generative Design](http://www.generative-gestaltung.de/2/)
 - [p5.js examples](https://p5js.org/examples/)
 
-**Entrega**: de cada uno de estos sitios selecciona un ejemplo que te haya 
+📤 **Entrega**: de cada uno de estos sitios selecciona un ejemplo que te haya 
 llamado la atención. Luego, en tu entrega, realiza lo siguiente:
 
 - Copia el enlace del ejemplo.

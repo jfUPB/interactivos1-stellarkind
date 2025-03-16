@@ -5,7 +5,7 @@ transformes y adaptes el caso de estudio para lograr controlar partes de este
 con el micro:bit. Primero te mostraré cómo transmitir información desde el 
 micro:bit.
 
-**Enunciado**: analiza el código del micro:bit que te permitirá enviar 
+🎯 **Enunciado**: analiza el código del micro:bit que te permitirá enviar 
 información a un sketch en p5.js.
 
 Vas a analizar lentamente el siguiente código del micro:bit
@@ -15,7 +15,6 @@ Vas a analizar lentamente el siguiente código del micro:bit
 from microbit import *
 
 uart.init(115200)
-state = "Init"
 display.set_pixel(0,0,9)
 
 while True:
@@ -58,5 +57,5 @@ primero piensa por favor, y luego verifica con la aplicación [SerialTerminal](h
 Ten presente que en `Mostrar datos como` puedes ver los bytes que se están enviando mediante 
 `Todo en HEX`.
 
-**Entrega**: reporta los experimentos y hallazgos que vas encontrando a medida 
+📤 **Entrega**: reporta los experimentos y hallazgos que vas encontrando a medida 
 que analizas el código y responde las preguntas que te voy haciendo en el enunciado.

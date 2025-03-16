@@ -8,8 +8,21 @@ import unidades from '../../activities/unidades.json';
 
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
+## Introducción 📜
 
-## ¿Qué aprenderás en esta unidad?
+En esta unidad vas a explorar un nuevo tipo de protocolo de comunicación serial, 
+el protocolo binario. Este protocolo es más eficiente que el ASCII, ya que permite enviar 
+mas información en menos tiempo. Sin embargo, es más complejo de implementar y 
+requiere un mayor conocimiento de la programación de bajo nivel. Por tanto, 
+te voy a proponer que continuemos con la misma aplicación que exploramos en la unidad anterior, 
+pero ahora la vamos a modificar para que use el protocolo binario. De esta manera 
+podrás comparar los dos protocolos y ver las ventajas y desventajas de cada uno. 
+
+## ¿Qué aprenderás en esta unidad? 💡
+
+Vas a enviar información desde el micro:bit a un sketch en p5.js usando 
+protocolos de comunicación binarios. Además, vas a comparar los protocolos 
+ASCII y binario y verás las ventajas y desventajas de cada uno.
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -21,7 +34,13 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Investigación
+## Investigación 🔎
+
+En esta fase, vas a analizar un caso de estudio que te servirá de base 
+para resolver el problema que te plantearé en la siguiente fase. Sin embargo, 
+esta vez iremos más rápido, ya que el caso de estudio lo conoces de la unidad 
+anterior. Nos concentraremos en la parte de la comunicación serial usando 
+protocolos binarios.
 
 {unit.actividades
   .filter(act => act.fase === "seek")
@@ -33,7 +52,11 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Aplicación
+## Aplicación 🛠
+
+Ahora que conoces los conceptos y técnicas fundamentales para lograr 
+una comunicación serial entre el micro:bit y un sketch en p5.js mediante 
+un protocolo binario, vas a aplicarlos en un proyecto.
 
 {unit.actividades
   .filter(act => act.fase === "apply")
@@ -45,7 +68,10 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Consolidación y metacognición
+## Consolidación y metacognición 🤔
+
+En esta última fase, vas recordar los conceptos y técnicas aprendidas 
+en esta unidad. Además, vas a reflexionar sobre tu proceso de aprendizaje.
 
 {unit.actividades
   .filter(act => act.fase === "reflect")

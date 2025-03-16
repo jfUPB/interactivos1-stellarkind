@@ -7,7 +7,7 @@ no es leer de corrido el código, sino analizarlo ¿Cómo? Haciendo experimentos
 partes del código, ejecutando y observando los resultados. A esto se le llama 
 **aprendizaje activo**.
 
-**Enunciado**: en esta actividad vas a modificar diferentes partes del 
+🎯 **Enunciado**: en esta actividad vas a modificar diferentes partes del 
 código original para que puedas controlar ciertas partes de este con el micro:bit.
 
 - Crea un nuevo proyecto p5.js. 
@@ -30,8 +30,11 @@ código original para que puedas controlar ciertas partes de este con el micro:b
 
 - Compara el código original del caso de estudio con el anterior. ¿Qué notas de diferente?
 
-La aplicación requiere algunas imágenes que puedes descargar de la aplicación original. 
-Descarga las imágenes y luego carga las imágenes a la carpeta de tu proyecto p5.js:
+La aplicación requiere algunas imágenes que puedes descargar de la aplicación original. ¿Cómo? 
+Lo primero es autenticarte en el editor de p5.js. Luego abre el sketch original y 
+realiza una modificación simple. Guarda el sketch. Nota que ahora este código está en tu cuenta. 
+Descarga las imágenes, ingresando al menú `File`. Finalmente, carga las imágenes a la carpeta 
+de tu proyecto p5.js así:
 
 ![p5.js files](../../../../assets/unit4-files.png)
 
@@ -114,9 +117,9 @@ Se llama pseudoestado porque cuando la aplicación está en este realmente NO ES
 ESPERANDO nada. ¿Puedes notar que no tenemos a INIT en este caso? Pero la verdad si está, 
 solo que no como antes, la función setup() está haciendo esa función. ¿Lo ves?
 
-Ahora es momento de programar el comportamiento del estado STATES.WAIT_MICROBIT_CONNECTION.  
-Recuerda que en este estado la aplicación en cada frame simplemente está esperando a que el 
-usuario conecte el micro:bit.
+Ahora es momento de programar el comportamiento del estado `STATES.WAIT_MICROBIT_CONNECTION`.  
+Recuerda que la aplicación en `este estado`, en cada frame, simplemente está esperando a que el 
+usuario conecte el micro:bit. Observa el código, agregaré algunas variables:
 
 ``` js
 const lineModule = [];
@@ -162,7 +165,7 @@ Observa que port, connectBtn y microBitConnected son variables globales. Se nece
 porque las vas a manipular en cualquier función del programa. No olvides que las variables 
 que declaremos dentro de las funciones solo serán visibles dentro de la función, no por fuera.
 
-Ahora añadiremos en la función setup, el código que permitirá conectarse al micro:bit:
+Ahora añadiremos en la función setup el código que permitirá conectarse al micro:bit:
 
 ``` js
 const lineModule = [];
@@ -280,7 +283,7 @@ es decir, para conectarte al micro:bit y poder recibir los datos que está envia
 esta parte de su código:
 
 ``` py
-data = "{},{},{},{}\n".format(xValue, yValue, aState,bState)
+data = "{},{},{},{}\n".format(xValue, yValue, aState, bState)
 uart.write(data)
 ```
 
@@ -439,20 +442,22 @@ function draw() {
 
 ```
 
-Nota que solo se leen datos del micro:bit si el puerto está abierto ¿Por qué?
+Nota que solo se leen datos del micro:bit si el puerto está abierto ¿Por qué? ¿Podrías 
+leer datos si el puerto está cerrado? ¿Qué pasaría si el puerto está cerrado y 
+el micro:bit envía datos?
 
 Ahora te pediré que te concentres.  Para leer los datos que vienen del micro:bit, la 
 aplicación primero pregunta si al menos hay un dato disponible para leer. Piensa que 
 hay una parte del código de la biblioteca p5.webserial que se encarga de recibir 
 los datos (como si fuera el portero de un edificio) y tu lo único que tienes que 
-preguntar y si al menos ya tienes un dato para leer. 
+preguntar es si al menos ya tienes un dato para leer. 
 
 ``` js	
 if (port.availableBytes() > 0) 
 ```
 ​
 Una vez sabes que al menos hay un dato, te quedas esperando que esté completa 
-la LINEA que contiene todos los datos:
+la `LINEA` que contiene todos los datos:
 
 ``` js	
 let data = port.readUntil("\n");
@@ -463,7 +468,7 @@ el byte que representa el fin de línea: `"\n"`. Por tanto, el
 micro:bit tendrá que MARCAR esto en cada paquete de datos que envíe:
 
 ``` py 
-data = "{},{},{},{}\n".format(xValue, yValue, aState,bState)
+data = "{},{},{},{}\n".format(xValue, yValue, aState, bState)
 ```
 
 ¿Puedes verlo? ¿Qué pasaría si el micro:bit no envía el `"\n"`? 
@@ -489,15 +494,15 @@ let values = data.split(",");
 Regresa al código del micro:bit:
 
 ``` py
-data = "{},{},{},{}\n".format(xValue, yValue, aState,bState)
+data = "{},{},{},{}\n".format(xValue, yValue, aState, bState)
 ```
-Cada `{}` es reemplazada por el valor de las variables xValue, yValue, aState,bState 
+Cada `{}` es reemplazada por el valor de las variables xValue, yValue, aState, bState 
 respectivamente. Además, observa el carácter `,` que separa cada valor.
 
 En resumen hasta ahora. El micro:bit al enviar esta cadena:
 
 ``` py
-data = "{},{},{},{}\n".format(xValue, yValue, aState,bState)
+data = "{},{},{},{}\n".format(xValue, yValue, aState, bState)
 ```
 
 Está separando los valor por coma y marcando el fin del mensaje con un retorno de carro (`\n`) o enter. 
@@ -524,11 +529,11 @@ if (values.length == 4) {
 Para analizar lo que sigue debemos volver al código del micro:bit:
 
 ``` py
-data = "{},{},{},{}\n".format(xValue, yValue, aState,bState)
+data = "{},{},{},{}\n".format(xValue, yValue, aState, bState)
 ```
 
 Como ya te dije antes, cada `{}` es reemplazada por el valor de las variables xValue, yValue,
-aState,bState respectivamente. Ten presente que toda la información está 
+aState, bState respectivamente. Ten presente que toda la información está 
 [CODIFICAD en ASCII](https://www.asciitable.com/), 
 es decir, si xValue es 100, realmente no estás enviando el byte que representa ese 100 sino 
 que estás codificando cada número en ASCII. Por tanto, el 100 realmente se envía como tres 
@@ -548,8 +553,8 @@ que representan los estados de los botones en un valor booleano.
 Te estarás preguntando ¿Por qué se suma `windowWidth/2` y `windowHeight/2` a los valores de x e y? 
 Esta respuesta te toca analizarla a ti. No olvides escribir tus hallazgos en la bitácora.
 
-Por último, la función `updateButtonStates` se encargará de actualizar el estado de los botones y aún no 
-la hemos añadido:
+Por último, la función `updateButtonStates` se encargará de actualizar el estado de los botones. Vamos 
+a añadir esta función al código:
 
 ``` js	
 const lineModule = [];
@@ -904,5 +909,5 @@ es abierta y no tiene una única respuesta).
 
 Finalmente, juega con la aplicación y `DIBUJA`.
 
-**Entrega**: reporta los experimentos y hallazgos que vas encontrando a medida 
+📤 **Entrega**: reporta los experimentos y hallazgos que vas encontrando a medida 
 que analizas el código y responde las preguntas que te voy haciendo en el enunciado.

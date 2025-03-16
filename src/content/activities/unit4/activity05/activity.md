@@ -1,6 +1,6 @@
 #### El momento de aplicar lo aprendido
 
-**Enunciado**: selecciona uno de los ejemplos que exploraste en la actividad 1 y realiza 
+🎯 **Enunciado**: selecciona uno de los ejemplos que exploraste en la actividad 1 y realiza 
 las modificaciones necesarias para que interactúe con el micro:bit. El micro:bit estará 
 ejecutando este programa:
 
@@ -9,7 +9,6 @@ ejecutando este programa:
 from microbit import *
 
 uart.init(115200)
-state = "Init"
 display.set_pixel(0,0,9)
 
 while True:
@@ -22,9 +21,9 @@ while True:
     sleep(100) # Envia datos a 10 Hz
 ```
 
-**Entrega**: 
+📤 **Entrega**: 
 
-- Enlacen a la aplicación original sin modificar, pero recreada en el editor de p5.js.
+- Enlace a la aplicación original sin modificar, pero recreada en el editor de p5.js.
 - Muestra el código de p5.js para la versión modificada.
 - Enlace a la aplicación modificada en el editor de p5.js.
 - Muestra capturas de pantalla del canvas de tu aplicación modificada.

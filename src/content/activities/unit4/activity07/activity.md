@@ -1,6 +1,6 @@
 #### Autoevaluación
 
-**Enunciado**: realiza una autoevaluación de tu trabajo en esta unidad.
+🎯 **Enunciado**: realiza una autoevaluación de tu trabajo en esta unidad.
 
 1. Describe qué aprendiste en esta unidad.
 2. ¿Qué fue lo más difícil de esta unidad? ¿Por qué?
@@ -20,5 +20,5 @@ que puedas iniciar, mantenerte y poner el esfuerzo necesario para lograr una met
 ¿Cómo estuvo tu motivación durante esta unidad? ¿Por qué?
 10. ¿Qué tan satisfecho estás con tu desempeño en esta unidad? ¿Por qué?
 
-**Entrega**: responde a las preguntas en tu bitácora y justifica tus respuestas con 
+📤 **Entrega**: responde a las preguntas en tu bitácora y justifica tus respuestas con 
 argumentos precisos.
