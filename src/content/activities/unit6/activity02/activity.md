@@ -9,7 +9,7 @@ las herramientas a tu disposición.
 
 ---
 
-##### 1. El Gran Mapa: ¿Qué es Internet?
+##### 1. El Gran mapa: ¿Qué es Internet?
 
 Imagina Internet no como una "nube" etérea, sino como una **gigantesca red de carreteras y cables**
 conectando millones de lugares: bibliotecas, tiendas, oficinas, casas... y también unos lugares
@@ -24,9 +24,9 @@ carreteras. ¿Qué pasaría si esa rampa se corta? Anota tus ideas.
 
 ---
 
-##### 2. Tu Vehículo y tu Destino: Navegador y Servidor
+##### 2. Tu vehículo y tu destino: navegador y servidor
 
-Tu **Navegador Web** (Chrome, Firefox, Safari, Edge...) es tu vehículo súper inteligente. No
+Tu **navegador web** (Chrome, Firefox, Safari, Edge...) es tu vehículo súper inteligente. No
 solo te lleva por las carreteras (Internet), sino que sabe cómo pedir cosas y, lo más
 importante, ¡cómo mostrarte lo que recibe! Eres tú, el usuario, quien decide a
 dónde ir. Tú eres el **Cliente**.
@@ -35,7 +35,7 @@ Un **Servidor** es como una biblioteca o un almacén gigante abierto 24/7, ubica
 punto de esa red de carreteras. Su trabajo principal es *"servir"* información o funcionalidad
 cuando un `Cliente` (como tu navegador) se la pide correctamente.
 
-> **La base:** El **Modelo Cliente-Servidor** = El `Cliente` pide, el `Servidor` responde.
+> **La base:** El **modelo Cliente-Servidor** = El `Cliente` pide, el `Servidor` responde.
 
 :::caution[🧐✍️ Pausa activa]
 ¿Puedes identificar otros ejemplos de relaciones `Cliente-Servidor` en
@@ -45,7 +45,7 @@ tu vida diaria (no necesariamente digitales)? Por ejemplo, al pedir comida en un
 
 ---
 
-##### 3. La Dirección Exacta: ¿Qué es una URL?
+##### 3. La dirección exacta: ¿Qué es una URL?
 
 Para que tu Navegador sepa a qué `Servidor` específico ir dentro de esa inmensa red, necesita
 una dirección precisa. Esa dirección es la **URL** (Uniform Resource Locator).
@@ -68,86 +68,7 @@ te envía el servidor?
 
 ---
 
-##### 4. La Conversación: Protocolo HTTP
-
-Dijimos que `http` era el protocolo. ¿Pero qué significa eso? Recuerda las unidades anteriores
-donde usaste protocolos (`ASCII`, binario con `framing`) para que el micro:bit y p5.js se entendieran
-por el puerto serial. ¡Aquí es la misma idea, pero a gran escala!
-
-**HTTP (HyperText Transfer Protocol)** es el conjunto de reglas estándar que usan los Navegadores
-(`Clientes`) y los `Servidores` para comunicarse en la web. Es como un idioma formal:
-
-#### El Viaje de los datos - De tu navegador al servidor y de regreso
-
-:::note[🎯 Enunciado]
-Antes de sumergirnos en el código específico de nuestro caso de estudio,
-vamos a hacer un viaje conceptual. Imagina que eres un explorador en el vasto mundo digital.
-Para navegar y interactuar con éxito, necesitas entender el mapa, las reglas de tránsito y
-las herramientas a tu disposición.
-:::
-
----
-
-##### 1. El Gran Mapa: ¿Qué es Internet?
-
-Imagina Internet no como una "nube" etérea, sino como una **gigantesca red de carreteras y cables**
-conectando millones de lugares: bibliotecas, tiendas, oficinas, casas... y también unos lugares
-especiales llamados `Servidores`. Tu computador (o teléfono) es tu vehículo, conectado a
-estas carreteras.
-
-:::caution[🧐✍️ Pausa activa]
-Piensa en cómo te conectas a Internet en casa o en la Universidad.
-¿Usas Wi-Fi? ¿Un cable de red? Eso es simplemente tu "rampa de acceso" a la gran red de
-carreteras. ¿Qué pasaría si esa rampa se corta? Anota tus ideas.
-:::
-
----
-
-##### 2. Tu Vehículo y tu Destino: Navegador y Servidor
-
-Tu **Navegador Web** (Chrome, Firefox, Safari, Edge...) es tu vehículo súper inteligente. No
-solo te lleva por las carreteras (Internet), sino que sabe cómo pedir cosas y, lo más
-importante, ¡cómo mostrarte lo que recibe! Eres tú, el usuario, quien decide a
-dónde ir. Tú eres el **Cliente**.
-
-Un **Servidor** es como una biblioteca o un almacén gigante abierto 24/7, ubicado en algún
-punto de esa red de carreteras. Su trabajo principal es *"servir"* información o funcionalidad
-cuando un `Cliente` (como tu navegador) se la pide correctamente.
-
-> **La base:** El **Modelo Cliente-Servidor** = El `Cliente` pide, el `Servidor` responde.
-
-:::caution[🧐✍️ Pausa activa]
-¿Puedes identificar otros ejemplos de relaciones `Cliente-Servidor` en
-tu vida diaria (no necesariamente digitales)? Por ejemplo, al pedir comida en un restaurante.
-¿Quién es el cliente y quién el servidor? ¿Qué se pide y qué se entrega?
-:::
-
----
-
-##### 3. La Dirección Exacta: ¿Qué es una URL?
-
-Para que tu Navegador sepa a qué `Servidor` específico ir dentro de esa inmensa red, necesita
-una dirección precisa. Esa dirección es la **URL** (Uniform Resource Locator).
-
-Desglosemos una URL típica: `http://www.ejemplo.com/pagina/index.html`
-
-*   **`http://`**
-    *   El **protocolo**. Son las reglas del idioma que usarán tu navegador y el servidor para hablar. ¡Volveremos a esto!
-*   **`www.ejemplo.com`**
-    *   El **nombre de dominio**. Es como el nombre del edificio o de la biblioteca. Detrás de escena, este nombre se traduce a una dirección numérica (la `dirección IP`) que sí indica la ubicación física en la red.
-*   **`/pagina/index.html`**
-    *   La **ruta específica** dentro de ese servidor. Es como pedir ir al "Departamento de Historia, Estante 3, Libro 5" dentro de la biblioteca. Indica el recurso exacto que quieres.
-
-:::caution[🧐✍️ Pausa activa]
-Toma la URL de tu sitio web favorito. Intenta identificar el protocolo,
-el nombre de dominio y la ruta (si la hay). ¿Qué crees que pasa si solo escribes el nombre de
-dominio (ej. `www.google.com`) sin una ruta específica? ¿Qué "página por defecto" crees que
-te envía el servidor?
-:::
-
----
-
-##### 4. La Conversación: Protocolo HTTP
+##### 4. La conversación: protocolo HTTP
 
 Dijimos que `http` era el protocolo. ¿Pero qué significa eso? Recuerda las unidades anteriores
 donde usaste protocolos (`ASCII`, binario con `framing`) para que el micro:bit y p5.js se entendieran

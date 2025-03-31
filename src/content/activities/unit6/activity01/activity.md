@@ -29,7 +29,7 @@ Descarga o clona el código fuente del caso de estudio desde [este repositorio](
     ``` bash
     npm start
     ```  
-- Ten presente que el paso nmp install solo es necesario la primera vez que trabajas con el proyecto.
+- Ten presente que el paso npm install solo es necesario la primera vez que trabajas con el proyecto.
 - Observa la salida en la terminal. Deberías ver un mensaje indicando que el servidor está escuchando.
 - Abre tu navegador web preferido.
 - En una ventana, escribe la dirección: http://localhost:3000/page1
