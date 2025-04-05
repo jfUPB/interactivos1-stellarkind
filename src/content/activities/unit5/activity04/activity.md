@@ -12,10 +12,10 @@ uart.init(115200)
 display.set_pixel(0, 0, 9)
 
 while True:
-    xValue = 500
-    yValue = 524
-    aState = True
-    bState = False
+    xValue = accelerometer.get_x()
+    yValue = accelerometer.get_y()
+    aState = button_a.is_pressed()
+    bState = button_b.is_pressed()
     # Empaqueta los datos: 2 enteros (16 bits) y 2 bytes para estados
     data = struct.pack('>2h2B', xValue, yValue, int(aState), int(bState))
     # Calcula un checksum simple: suma de los bytes de data módulo 256

@@ -5,11 +5,40 @@ unitId: unit8
 
 import ActivityPlaceholder from '../../../components/ActivityPlaceholder.astro';
 import unidades from '../../activities/unidades.json';
+import { Aside} from '@astrojs/starlight/components';
 
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
+## Introducción 📜
 
-## ¿Qué aprenderás en esta unidad?
+<Aside type="note">
+¡Hemos llegado a la última unidad del curso! Es hora de sintetizar todo lo aprendido 
+en "Sistemas Físicos Interactivos 1". En esta unidad, no introduciremos conceptos 
+técnicos radicalmente nuevos, sino que nos centraremos en **aplicar e integrar** 
+las herramientas y técnicas que ya dominas (móvil, computador, micro:bit, p5.js, Node.js, 
+Socket.IO, Dev Tunnels, protocolos) para crear un sistema interactivo completo y 
+con significado. Adoptaremos la metodología **Input-Process-Output** de Patrik Hübner 
+como guía para diseñar una experiencia donde los datos (inputs) dan forma a una narrativa 
+o resultado (output) a través de un proceso creativo definido por ti.
+</Aside>
+
+## ¿Qué aprenderás y demostrarás en esta unidad? 💡
+
+<Aside type="tip" title="Objetivos de Aprendizaje y Aplicación">
+Al finalizar esta unidad, serás capaz de:
+
+*   Aplicar la metodología **Input-Process-Output** para conceptualizar y diseñar un sistema interactivo.
+*   Definir una **narrativa o concepto** claro que guíe el diseño de la interacción.
+*   Seleccionar y justificar las **fuentes de entrada (Inputs)** más adecuadas (móvil, micro:bit, computador) 
+para tu concepto.
+*   Diseñar e implementar un **algoritmo de procesamiento (Process)** en Node.js que transforme las entradas 
+de manera significativa.
+*   Crear una **salida (Output)** visual o interactiva coherente en el computador (p5.js) que refleje el proceso.
+*   **Integrar** múltiples componentes (hardware y software) y tecnologías de comunicación (Serial, Socket.IO, Dev Tunnels, protocolos ASCII/Binario) en un único sistema funcional.
+*   **Documentar** de forma clara y completa el diseño conceptual y técnico de tu proyecto.
+*   **Presentar y explicar** tu sistema interactivo, demostrando su funcionamiento y las decisiones de diseño.
+*   **Reflexionar** sobre el proceso de diseño, implementación y aprendizaje a lo largo de todo el curso.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -21,7 +50,14 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Investigación
+## Investigación y Diseño Conceptual 🔎
+
+<Aside type="note">
+Antes de escribir código, nos sumergiremos en el diseño. Profundizaremos en la metodología 
+Input-Process-Output y la usaremos para definir la idea central, la narrativa, las 
+fuentes de datos específicas y el resultado esperado de tu proyecto final. La clave 
+aquí es la **intencionalidad** en el diseño.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "seek")
@@ -33,7 +69,15 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Aplicación
+## Aplicación e Implementación 🛠
+
+<Aside type="note">
+¡Manos a la obra! En esta fase, traducirás tu diseño conceptual y técnico en un sistema 
+funcional. Implementarás la captura de datos de entrada, desarrollarás la lógica de 
+procesamiento en el servidor y crearás la visualización o interacción de salida, 
+integrando todas las piezas. Recuerda: no tienes que usar *todas* las herramientas vistas, 
+solo las **necesarias y apropiadas** para tu concepto.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "apply")
@@ -45,7 +89,13 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Consolidación y metacognición
+## Consolidación y Metacognición 🤔
+
+<Aside type="note">
+Llegamos al final del recorrido. En esta fase, consolidarás tu trabajo documentando 
+tu proyecto final y realizarás una reflexión final sobre tu aprendizaje en todo el 
+curso.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "reflect")
