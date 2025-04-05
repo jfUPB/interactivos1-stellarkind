@@ -15,10 +15,10 @@ Completa tu proyecto implementando la lógica de **procesamiento (`Process`)** y
     *   Maneja también inputs locales (teclado/ratón) si forman parte de tu concepto, actualizando variables de estado.
     *   **Crea la lógica principal del `Process`:** escribe funciones o código (puede ser dentro de `draw()` o en funciones separadas llamadas desde `draw()`) que lean las variables de estado (con los últimos datos de todas las fuentes), las combinen, apliquen tus reglas/cálculos definidos en el concepto I-P-O, y determinen los parámetros para el output (ej: tamaño, color, posición, sonido).
 2.  **Implementa el Output en Cliente p5.js:**
-    *   En la función `draw()`: Usa los parámetros calculados por tu lógica de `Process` para dibujar en el canvas, modificar elementos visuales, controlar sonido, etc.
+    *   En la función `draw()`: usa los parámetros calculados por tu lógica de `Process` para dibujar en el canvas, modificar elementos visuales, controlar sonido, etc.
     *   Asegúrate de que el output refleje visual o interactivamente la combinación de los inputs según tu narrativa.
 3.  **Pruebas de Integración (End-to-End con proceso local):**
-    *   Ejecuta todo: servidor puente (simple relay), móvil, conecta micro:bit, escritorio (p5.js).
+    *   Ejecuta todo: servidor puente, móvil, conecta micro:bit, escritorio (p5.js).
     *   Interactúa con *todos* los inputs.
     *   Observa si el Output en p5.js reacciona como esperabas, reflejando la lógica de combinación y procesamiento que implementaste *ahí mismo*.
     *   Depura la lógica del `Process` *dentro* de p5.js usando `console.log` para ver valores intermedios y el resultado del procesamiento antes de dibujar.

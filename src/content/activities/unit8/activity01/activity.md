@@ -16,11 +16,11 @@ Iniciamos la unidad final recordando y profundizando en un marco conceptual clav
     *   Revisa tus notas de la Unidad 1 y el texto de Hübner.
     *   **Reflexiona:** ¿Cómo ha evolucionado tu comprensión de I-P-O ahora que has manejado múltiples inputs y outputs?
 2.  **I-P-O con Procesamiento en el Cliente:**
-    *   **Inputs:** identifica las fuentes de datos (Móvil vía Socket/Node, Micro:bit vía Serial, Computador local p5.js - teclado/ratón).
+    *   **Inputs:** identifica las fuentes de datos (Móvil vía Socket/Node, Micro:bit vía Serial, Computador local p5.js - teclado/mouse).
     *   **Puente (Node.js):** entiende su rol *limitado*, es decir, solo retransmitir mensajes entre el móvil y el cliente p5.js. No procesa ni almacena estado significativo.
     *   **Process (Cliente p5.js):** reconoce que *aquí* es donde combinarás los datos recibidos (del micro:bit directamente, del móvil vía Node.js, y locales), aplicarás tu lógica creativa y tomarás decisiones.
     *   **Output (Cliente p5.js):** la visualización que resulta de tu proceso local.
-3.  **La intención guía la integración:** Discute cómo el modelo I-P-O te ayuda a diseñar la *lógica de integración* que correrá en tu cliente p5.js, asegurando que la combinación de inputs sirva a un propósito o narrativa.
+3.  **La intención guía la integración:** discute cómo el modelo I-P-O te ayuda a diseñar la *lógica de integración* que correrá en tu cliente p5.js, asegurando que la combinación de inputs sirva a un propósito o narrativa.
 
 :::note[🧐🧪✍️ Reporta en tu bitácora]
 *   Describe cómo entiendes ahora el rol de cada componente (Móvil, Micro:bit, Servidor Node Puente, Cliente p5.js) dentro del esquema I-P-O modificado.

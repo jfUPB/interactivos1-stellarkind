@@ -1,7 +1,8 @@
 #### El Servidor (Node.js)
 
 :::note[🎯 **Enunciado**]
-Vamos a analizar paso a paso el archivo server.js. Este script es el núcleo que 
+Comenzamos a analizar el caso de estudio que pusiste a funcionar en la primera actividad. Primero,
+vamos a analizar paso a paso el archivo server.js. Este script es el núcleo que 
 permite la comunicación en tiempo real. No te preocupes si ves código nuevo, iremos explicando cada parte.
 :::
 
@@ -80,7 +81,7 @@ server.js, y path.join la une de forma segura con views.
 
 :::caution[🧐🧪✍️ Experimenta]
 
-- Detén el servidor (Ctrl+C en la terminal).
+- Detén el servidor, en caso de que se esté ejecutando (Ctrl+C en la terminal).
 
 - Cambia la línea a app.use(express.static(path.join(__dirname, 'archivos_cliente'))); 
 (usa un nombre de carpeta que no exista).
@@ -95,7 +96,7 @@ de desarrollador (F12)?
 :::
 
 
-##### 5. Rutas: Qué enviar cuando se pide una URL
+##### 5. Rutas: ¿Qué enviar cuando se pide una URL?
 
 ``` js
 // Define la ruta para servir page1.html
@@ -112,12 +113,12 @@ app.get('/page2', (req, res) => {
 :::note[🧩 **Explicación**] 
 Estas funciones definen qué debe hacer el servidor cuando un navegador solicita las URLs /page1 o /page2. app.get le dice a Express que escuche peticiones GET para esas rutas. Cuando llega una petición, ejecuta la función asociada:
 
-res.sendFile(...): Envía el archivo HTML correspondiente (page1.html o page2.html) de vuelta al navegador. De nuevo, path.join construye la ruta completa al archivo.
+res.sendFile(...): envía el archivo HTML correspondiente (page1.html o page2.html) de vuelta al navegador. De nuevo, path.join construye la ruta completa al archivo.
 :::
 
 :::caution[🧐🧪✍️ Experimenta]
 
-- Detén el servidor.
+- Detén el servidor si está corriendo.
 
 - Cambia la primera ruta de /page1 a /pagina_uno.
 
@@ -150,7 +151,7 @@ io.on('connection', (socket) => {
 :::note[🧩 **Explicación**] 
 Esta es la parte central de Socket.IO en el servidor.
 
-io.on('connection', ...): Establece un ``"oyente"`` para el evento connection. Este evento 
+io.on('connection', ...): establece un ``event listener"`` para el evento ``connection``. Este evento 
 se dispara cada vez que un nuevo cliente (una ventana del navegador con page1.js o page2.js) 
 establece una conexión de Socket.IO con el servidor.
 

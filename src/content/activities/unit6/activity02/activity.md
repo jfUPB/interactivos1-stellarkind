@@ -35,7 +35,7 @@ Un **Servidor** es como una biblioteca o un almacén gigante abierto 24/7, ubica
 punto de esa red de carreteras. Su trabajo principal es *"servir"* información o funcionalidad
 cuando un `Cliente` (como tu navegador) se la pide correctamente.
 
-> **La base:** El **modelo Cliente-Servidor** = El `Cliente` pide, el `Servidor` responde.
+> **La base:** el **modelo Cliente-Servidor** = el `Cliente` pide, el `Servidor` responde.
 
 :::caution[🧐✍️ Pausa activa]
 ¿Puedes identificar otros ejemplos de relaciones `Cliente-Servidor` en
@@ -57,7 +57,7 @@ Desglosemos una URL típica: `http://www.ejemplo.com/pagina/index.html`
 *   **`www.ejemplo.com`**
     *   El **nombre de dominio**. Es como el nombre del edificio o de la biblioteca. Detrás de escena, este nombre se traduce a una dirección numérica (la `dirección IP`) que sí indica la ubicación física en la red.
 *   **`/pagina/index.html`**
-    *   La **ruta específica** dentro de ese servidor. Es como pedir ir al "Departamento de Historia, Estante 3, Libro 5" dentro de la biblioteca. Indica el recurso exacto que quieres.
+    *   La **ruta específica** dentro de ese servidor. Es como pedir ir a la "sección de arte, Estante 3, Libro 5" dentro de la biblioteca. Indica el recurso exacto que quieres.
 
 :::caution[🧐✍️ Pausa activa]
 Toma la URL de tu sitio web favorito. Intenta identificar el protocolo,
@@ -97,9 +97,9 @@ por el puerto serial. ¡Aquí es la misma idea, pero a gran escala!
 :::caution[🧐✍️ Pausa activa]
 Compara HTTP con los protocolos seriales que usaste.
 
-¿Qué similitudes encuentras (ambos son reglas para la comunicación)?
+¿Qué similitudes encuentras?
 
-¿Qué diferencias clave ves (uno es para la web global, los otros eran para una conexión directa por cable)?
+¿Qué diferencias clave ves?
 
 ¿Por qué crees que HTTP necesita ser más complejo que un simple envío de bytes como hacías con el micro:bit?
 :::
@@ -175,10 +175,10 @@ Hasta ahora, `JavaScript` vivía solo dentro de tu Navegador. **Node.js** fue un
 
 ¡Eso es `Node.js`! Permite a los desarrolladores escribir el código del **lado del servidor** usando `JavaScript`, el mismo lenguaje que ya usan en el **lado del cliente** (navegador). En nuestro caso de estudio, `server.js` es un script de `Node.js` que:
 
-*   Crea un servidor `HTTP` (como la biblioteca).
+*   Crea un servidor `HTTP` (como la biblioteca con la sección de historia de la que hablamos antes).
 *   Escucha peticiones de los navegadores (como la tuya pidiendo `/page1`).
 *   Envía los archivos `HTML`, `CSS` y `JS` necesarios.
-*   Y además, maneja la comunicación en tiempo real (¡siguiente punto!).
+*   Y además, maneja la comunicación en tiempo real (¡Siguiente punto!).
 
 :::caution[🧐✍️ Pausa activa]
 ¿Por qué crees que podría ser útil usar `JavaScript` tanto en el cliente (navegador) como en el servidor? ¿Se te ocurre alguna ventaja para los desarrolladores?
@@ -188,7 +188,7 @@ Hasta ahora, `JavaScript` vivía solo dentro de tu Navegador. **Node.js** fue un
 
 ##### 9. WebSockets y Socket.IO
 
-El modelo `HTTP` normal de Petición/Respuesta es como *enviar cartas*: pides algo, esperas, recibes una respuesta. Funciona bien para pedir páginas web, pero ¿Qué pasa si quieres **comunicación instantánea**, como un chat o ver la posición del cursor de otra persona en tiempo real? Enviar una "carta" (`HTTP Request`) cada décima de segundo sería muy ineficiente.
+El modelo `HTTP` normal de Petición/Respuesta es como *enviar correos electrónicos*: pides algo, esperas, recibes una respuesta. Funciona bien para pedir páginas web, pero ¿Qué pasa si quieres **comunicación instantánea**, como un chat o ver la posición del cursor de otra persona en tiempo real? Enviar un "correo" (`HTTP Request`) cada décima de segundo sería muy ineficiente.
 
 Aquí entran los **WebSockets**. Son como establecer una *línea telefónica directa y permanente* entre el Navegador (`Cliente`) y el `Servidor` una vez que la conexión inicial se ha hecho. Una vez abierta, ambos pueden enviarse mensajes instantáneamente sin necesidad de nuevas peticiones `HTTP` formales.
 

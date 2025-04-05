@@ -99,7 +99,7 @@ socket.on('getdata', (dataWindow) => {
 
 :::caution[🧩 **Explicación**] 
 
-socket.on('getdata', ...): este oyente espera mensajes con el nombre 'getdata' que provienen 
+socket.on('getdata', ...): este ``event listener`` espera mensajes con el nombre 'getdata' que provienen 
 del servidor. Recuerda que el servidor hace broadcast.emit('getdata', ...) cuando la otra 
 ventana (page1) envía una actualización.
 

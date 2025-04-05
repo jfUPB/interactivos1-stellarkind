@@ -1,8 +1,7 @@
 #### Diseño técnico - arquitectura, flujos y protocolos
 
 :::note[🎯 Enunciado]
-Traduciremos tu concepto I-P-O a un plan técnico concreto, reflejando la arquitectura 
-modificada. Diseñarás el flujo de datos, seleccionarás tecnologías y definirás protocolos, especificando el rol **exclusivamente de puente** del servidor Node.js y la ubicación del **proceso en el cliente p5.js** (la aplicación
+Traduciremos tu concepto I-P-O a un plan técnico concreto, la arquitectura (componentes y relaciones). Diseñarás el flujo de datos, seleccionarás tecnologías y definirás protocolos, especificando el rol **exclusivamente de puente** del servidor Node.js y la ubicación del **proceso en el cliente p5.js** (la aplicación
 del computador).
 :::
 
