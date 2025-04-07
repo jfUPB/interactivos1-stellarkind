@@ -1,6 +1,6 @@
 ## Solución a la séptima actividad:
 ### Código sketch de bomba en p5.js:
-```
+``` js
 let countdown = 20;
 let state = "CONFIG"; //Define el estado inicial de la bomba como CONFIG (modo configuración).
 let lastTick;
