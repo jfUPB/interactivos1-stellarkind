@@ -1,6 +1,6 @@
 ## Solución a la octava actividad
 ### Control remoto desde el micro:bit
-**Código Actualizado del Micro:bit (Python): **
+**Código Actualizado del Micro:bit (Python):**
 ``` python
 
 from microbit import *
