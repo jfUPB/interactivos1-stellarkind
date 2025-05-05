@@ -26,4 +26,4 @@ ID | Descripción problema detectado | Causa del problema | Solución aplicada |
 ---|--------------------------------|--------------------|-------------------|-------------
 R1 | Shake (micro:bit) no iniciaba countdown desde CONFIG | El evento serial "S" no estaba siendo escuchado correctamente en p5.js | Se añadió correctamente lectura de evento serial "S" desde micro:bit en p5.js |  Solucionado
 R2 | Tras explosión, touch del micro:bit no reiniciaba | Evento serial "T" no se procesaba en estado EXPLODED | Añadí claramente manejo evento centerEvent en estado EXPLODED desde serial "T" |  Solucionado
-R3 | No había feedback visual en el micro:bit al realizar un input (botones A, B, shake o touch) | No se había implementado visualización inmediata en micro:bit	Implementé display.show() con caracteres específicos para cada evento recibido desde micro:bit (A, B, S, T)	| Solucionado
+R3 | No había feedback visual en el micro:bit al realizar un input (botones A, B, shake o touch) | No se había implementado visualización inmediata en micro:bit	| Implementé display.show() con caracteres específicos para cada evento recibido desde micro:bit (A, B, S, T)	| Solucionado
