@@ -15,3 +15,4 @@
 ### Ejemplo #2) Generative Design:
 - **Sketch original:** [P_2_1_1_02](http://www.generative-gestaltung.de/2/sketches/?01_P/P_2_1_1_02)  
     - **¿Por qué me llamó la atención?:** Este sketch me parece interesante porque combina dos cosas que me atraen mucho: lo visualmente llamativo de los patrones generativos tipo laberinto y la interacción directa con el mouse. Me gusta que cada clic genera una composición diferente, lo que hace que nunca se repita y siempre me sorprenda con nuevas formas. Además, el hecho de que el grosor de las líneas reaccione al movimiento del mouse en los ejes X e Y me hace sentir más conectada con lo que está ocurriendo en pantalla, como si yo misma estuviera influyendo en la intensidad y la complejidad del diseño. Esa combinación de aleatoriedad controlada e interacción me parece muy chévere.
+- **Mi versión del sketch:** [actividad04-01-generativedesign](https://editor.p5js.org/stellarkind/full/Ls7qAmZr_)
