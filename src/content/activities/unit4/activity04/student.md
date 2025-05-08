@@ -27,4 +27,9 @@ La forma en que yo puedo verificarlo con el código que construimos es observand
 ### ```updateButtonStates```: ¿Qué hace? ¿Por qué es necesario almacenar el estado anterior de los botones? ¿Qué pasaría si no se almacenara el estado anterior?
 El propósito de ```updateButtonStates``` es tomar los estados actuales de los botones que acabo de leer del micro:bit y usarlos para simular los eventos de "botón presionado una vez" o "botón soltado una vez", de manera similar a cómo funcionaban mousePressed() o keyReleased() en el sketch original para el mouse. Es absolutamente necesario almacenar el estado anterior de los botones dado que la función ```draw()``` se ejecuta muchas veces por segundo, si no se almacenara el estado anterior, presionar y mantener el botó haría que el tamaño del pincel cambiase aleatoriamente y su posición de inicio se reseteara en cada fotograma, lo que haría muy dificil dibujar con la herramienta.
 
-
+### Compara el código original y el nuevo código
+Lo principal:
+- Se añadió toda la infraestructura para la comunicación serial con el micro:bit y el bloque de lectura serial en draw()).
+- Se implementó una máquina de estados simple para controlar el flujo de la aplicación (esperar conexión vs. dibujar).
+- Se añadió la función ```updateButtonStates()``` junto con unas variables para procesar los estados de los botones del micro:bit y generar eventos de "presionar una vez" y "soltar una vez".
+-  En el sketch original, el dibujo comenzaba al presionar el mouse. Ahora, la lógica de iniciar el dibujo se movió dentro del estado ```STATES.RUNNING``` y está controlada por si el botón A del micro:bit está presionado. La función ```mousePressed()``` en este nuevo código solo se usa para el botón "Connect/Disconnect". De manera similar, la función de cambiar a color aleatorio que antes se activaba al soltar la barra espaciadora ahora se activa cuando se detecta que el botón B del micro:bit acaba de ser soltado. El micro:bit tomó el control de algunas acciones que antes hacían el ratón y la barra espaciadora, mientras otras funciones de teclad siguen funcionando con el mismo.
