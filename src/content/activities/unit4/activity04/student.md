@@ -19,8 +19,12 @@ Creería yo qur no puedo recibir información a través de una conexión que no 
 Si el micro:bit no enviara el ```\n```, la función ```readUntil()``` seguiría esperando indefinidamente a que llegue ese carácter, y mi sketch se quedaría trabado en esa línea.
 
 ### ¿Por qué se suma ```windowWidth/2``` y ```windowHeight/2``` a los valores de x e y?
- Al sumar windowWidth/2 y windowHeight/2, estoy centrando las coordenadas del micro:bit en el medio de mi lienzo. Así, cuando el micro:bit está plano (X=0, Y=0), mi posición de dibujo estará en el centro de la ventana. Inclinar el micro:bit moverá la posición de dibujo desde ese centro, osea que sirve para mapear la inclinación del microbit.
+ Al sumar ```windowWidth/2``` y ```windowHeight/2```, estoy centrando las coordenadas del micro:bit en el medio de mi lienzo. Así, cuando el micro:bit está plano (X=0, Y=0), mi posición de dibujo estará en el centro de la ventana. Inclinar el micro:bit moverá la posición de dibujo desde ese centro, osea que sirve para mapear la inclinación del microbit.
 
- ### 
+### ¿Cómo puedes verificar que los eventos de keypressed y keyreleased se están generando?
+La forma en que yo puedo verificarlo con el código que construimos es observando la consola del navegador mientras ejecuto mi sketch y presiono los botones del micro:bit.
 
- 
+### ```updateButtonStates```: ¿Qué hace? ¿Por qué es necesario almacenar el estado anterior de los botones? ¿Qué pasaría si no se almacenara el estado anterior?
+El propósito de ```updateButtonStates``` es tomar los estados actuales de los botones que acabo de leer del micro:bit y usarlos para simular los eventos de "botón presionado una vez" o "botón soltado una vez", de manera similar a cómo funcionaban mousePressed() o keyReleased() en el sketch original para el mouse. Es absolutamente necesario almacenar el estado anterior de los botones dado que la función ```draw()``` se ejecuta muchas veces por segundo, si no se almacenara el estado anterior, presionar y mantener el botó haría que el tamaño del pincel cambiase aleatoriamente y su posición de inicio se reseteara en cada fotograma, lo que haría muy dificil dibujar con la herramienta.
+
+
