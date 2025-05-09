@@ -5,11 +5,41 @@ unitId: unit6
 
 import ActivityPlaceholder from '../../../components/ActivityPlaceholder.astro';
 import unidades from '../../activities/unidades.json';
+import { Aside} from '@astrojs/starlight/components';
 
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
+## Introducción 📜
+<Aside type="note" title=" ">
 
-## ¿Qué aprenderás en esta unidad?
+¡Felicidades por llegar a la sexta unidad! Ya dominas técnicas para conectar 
+dispositivos físicos a aplicaciones interactivas usando comunicación serial 
+(ASCII y binaria). Ahora, vamos a dar un paso más allá y explorar cómo conectar 
+dos aplicaciones que se ejecutan en tu navegador en tiempo real.
+
+En esta unidad, descubrirás Node.js y Socket.IO, herramientas poderosas que nos 
+permitirán crear un "puente" de comunicación. Node.js actuará como un servidor 
+intermediario, y Socket.IO facilitará el envío y recepción de mensajes instantáneos 
+entre las aplicaciones cliente (sketches de p5.js). Empezaremos analizando un caso 
+de estudio funcional para entender la mecánica servidor-cliente y luego lo 
+modificarás para crear tu propia experiencia interactiva conectada. Aunque en esta 
+unidad ambas aplicaciones cliente correrán en tu computador, esto sienta las bases 
+para futuras conexiones entre diferentes dispositivos o computadores.
+</Aside>
+
+## ¿Qué aprenderás en esta unidad? 💡
+
+<Aside type="tip" title=" ">
+- Configurarás y ejecutarás un servidor básico usando Node.js, Express y Socket.IO.  
+- Implementarás comunicación en tiempo real entre dos sketches de p5.js utilizando 
+Socket.IO a través de un servidor Node.js.  
+- Analizarás la arquitectura cliente-servidor y el flujo de datos en una aplicación 
+web en tiempo real.  
+- Modificarás un caso de estudio existente para crear una nueva aplicación 
+interactiva que utilice comunicación en red.  
+- Compararás esta forma de comunicación con la comunicación serial vista en 
+unidades anteriores.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -21,7 +51,16 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Investigación
+## Investigación 🔎
+
+<Aside type="note" title=" ">
+Ahora que has visto el caso de estudio en acción, es momento de investigar cómo funciona 
+internamente. Nos centraremos primero en el "puente" (el servidor Node.js) y luego en 
+cómo los clientes (los sketches p5.js) interactúan con él. Este caso de estudio está inspirado 
+en el trabajo de [Sahand Babali](https://youtu.be/cBgxArOP4jg?si=--bM5_oR1LcF9RVQ) y explora 
+conceptos similares a los vistos en la obra [Entangled](https://x.com/_nonfigurativ_/status/1727322594570027343) 
+de Bjørn Staal.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "seek")
@@ -33,7 +72,13 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Aplicación
+## Aplicación 🛠
+
+<Aside type="note" title=" ">
+Has analizado cómo funciona la comunicación bidireccional en tiempo real entre dos 
+sketches de p5.js usando Node.js y Socket.IO. Ahora es tu turno de tomar este 
+conocimiento y aplicarlo creativamente.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "apply")
@@ -45,7 +90,12 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Consolidación y matacognión
+## Consolidación y metacognición 🤔
+
+<Aside type="note" title=" ">
+Hemos cubierto bastante terreno en esta unidad, introduciendo un nuevo paradigma de 
+comunicación. Es hora de reflexionar sobre lo aprendido.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "reflect")

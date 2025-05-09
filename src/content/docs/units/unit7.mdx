@@ -5,11 +5,47 @@ unitId: unit7
 
 import ActivityPlaceholder from '../../../components/ActivityPlaceholder.astro';
 import unidades from '../../activities/unidades.json';
+import { Aside} from '@astrojs/starlight/components';
 
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
+## Introducción 📜
+<Aside type="note" title=" ">
+En unidades anteriores, exploraste cómo conectar un dispositivo físico (micro:bit) a 
+una aplicación web usando Web Serial y también cómo conectar dos ventanas del navegador 
+en tu propio computador usando Node.js y Socket.IO.
 
-## ¿Qué aprenderás en esta unidad?
+Ahora, daremos un paso más allá en la conectividad. Usaremos un dispositivo que llevas 
+contigo a todas partes, tu **teléfono celular**, como un dispositivo de entrada. 
+Capturaremos los eventos táctiles (*touch*) en una página web simple en tu celular y 
+enviaremos esa información en tiempo real a una aplicación web generativa (con p5.js) 
+que se ejecutará en el navegador de tu **computador**.
+
+Para lograr este "puente" entre dispositivos, utilizaremos Node.js y Socket.IO como 
+servidor intermediario, similar a la unidad anterior. Sin embargo, como tu celular 
+y tu computador no estarán (inicialmente) en la misma red local o no podrán "verse" 
+directamente, introduciremos una herramienta poderosa: **Microsoft Dev Tunnels** 
+(accesible a través de VS Code) para exponer de forma segura nuestro servidor 
+local a Internet.
+</Aside>
+
+## ¿Qué aprenderás en esta unidad? 💡
+
+<Aside type="tip" title="Objetivos de aprendizaje">
+Al finalizar esta unidad, serás capaz de:
+- Configurar y utilizar **VS Code Port Forwarding (Dev Tunnels)** para exponer un servidor 
+Node.js local a Internet de forma segura.
+- Implementar una aplicación cliente en un dispositivo móvil (teléfono) que capture 
+**eventos táctiles** y los envíe a un servidor Node.js usando Socket.IO.
+- Implementar una aplicación cliente en un computador de escritorio que reciba datos 
+en tiempo real desde el servidor Node.js (originados en el móvil) y los utilice para 
+controlar una visualización p5.js.
+- Utilizar **JSON** para estructurar y transmitir datos complejos 
+(coordenadas táctiles) entre cliente y servidor.
+- Analizar y comprender el flujo completo de datos: Móvil (Touch) -> Servidor Node.js (vía Dev Tunnel) -> Escritorio (Visualización).
+- Adaptar y modificar un caso de estudio para crear una interacción novedosa basada en 
+la entrada táctil del móvil.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -21,7 +57,14 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Investigación
+## Investigación 🔎
+
+<Aside type="note" title="Caso de estudio">
+Ahora que has configurado y probado el sistema base, es hora de sumergirnos en los 
+detalles. Desglosaremos los componentes clave: los conceptos nuevos necesarios, el servidor 
+Node.js que actúa como puente, el cliente móvil que captura el *touch*, y el cliente de 
+escritorio que recibe y visualiza.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "seek")
@@ -33,7 +76,14 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Aplicación
+## Aplicación 🛠
+
+<Aside type="note" title=" ">
+Has analizado cómo el móvil puede controlar el escritorio a través de un servidor 
+y Dev Tunnels. Ahora es tu turno de ser creativo. Tomarás la base tecnológica y la 
+transformarás en una aplicación interactiva diferente, manteniendo la esencia: el *touch* 
+del móvil como input principal.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "apply")
@@ -45,7 +95,14 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Consolidación y matacognión
+## Consolidación y metacognición 🤔
+
+<Aside type="note" title=" ">
+Hemos cubierto la conexión entre dispositivos diferentes usando tecnologías web y 
+herramientas de ``"tunelización"`` (Dev Tunnels). Dediquemos un momento a consolidar lo 
+aprendido, evaluar tu progreso y reflexionar sobre cómo podemos mejorar tanto 
+el aprendizaje como la enseñanza.
+</Aside>
 
 {unit.actividades
   .filter(act => act.fase === "reflect")
