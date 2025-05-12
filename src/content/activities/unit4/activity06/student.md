@@ -45,3 +45,7 @@ uart.write(data)
 ```
 
 ### 6) ¿Qué significa que los datos enviados por el micro:bit están codificados en ASCII?
+Significa que la cadena de texto que el micro:bit crea (```"123,756,False,True\n"``` por ejemplo) se envía a través del cable serial como una secuencia de números. Cada carácter de la cadena original (como '1', '2', '3', ',', 'F', 'a', etc., y el salto de línea ```\n```) se representa por un número estándar específico según la tabla de codificación ASCII.
+
+### 7) ¿Por qué es necesario en la aplicación de p5.js preguntar si hay bytes disponibles en el puerto serial antes de leerlos?
+Es necesario preguntar si hay bytes disponibles (```if (port.availableBytes() > 0)```) antes de llamar a ```port.readUntil("\n")``` porque ```readUntil()``` es una función que pausa la ejecución del sketch. Entonces usar ```if (port.availableBytes() > 0)```, asegura de que solo intento leer datos si sé primero que al menos ha llegado algo. Esto evita que el sketch se pegue si no hay actividad serial en un momento dado.
