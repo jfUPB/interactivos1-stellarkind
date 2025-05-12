@@ -21,3 +21,13 @@ if (values.length == 4) { /* ... */ } // Verifica si la estructura del mensaje e
 Las comas se usan paraa delimitar, estas le indican al programa que recibe: "Aquí termina un dato y el siguiente empieza justo después". Esto es fundamental para poder separar la única cadena de texto que llega por el serial en los diferentes valores individuales que necesito procesar en p5.js.
 
 ### 3) ¿Por qué es necesario terminar los datos con un carácter que marque el fin del mensaje?
+Es necesario porque a pesar que los datos llegan como un flujo continuo de bytes, el programa que recibe necesita saber cuándo un paquete completo de informacín. El carácter de fin de mensaje (\n) actúa como el punto final de cada mensaje.  
+Mi código en p5.js usa una función que espera específicamente este carácter para saber que ya ha leído una línea completa de datos (```port.readUntil("\n")```). Si el micro:bit no enviara el ```\n```, el sketch de p5.js seguiría leyendo indefinidamente sin saber cuándo detenerse para procesar un mensaje completo, lo que podría causar que se quede esperando o que procese datos incompletos, que incluso tomando esta precaución a veces pasa que el/los canales se saturan y p5.js no puede procesarlos.
+
+### 4) ¿Por qué fue necesario usar una máquina de estados en la aplicación modificada de p5.js?
+Fue necesario usar una máquina de estados porque la aplicación tiene diferentes modos de operación que dependen de si el micro:bit está conectado o no. 
+- En el estado (```WAIT_MICROBIT_CONNECTION```), el sketch solo debe esperar y mostrar un mensaje de conexión.
+- En otro estado (```RUNNING```), el sketch debe leer activamente los datos del micro:bit, usar esos datos para el dibujo generativo y responder a los botones del micro:bit.
+Estos dos comportamientos son muy distintos. Una máquina de estados me permite organizar mi código para que la lógica de ```draw()``` solo ejecute el código relevante para el estado actual y gestione las transiciones entre estados.
+
+### 5) 
