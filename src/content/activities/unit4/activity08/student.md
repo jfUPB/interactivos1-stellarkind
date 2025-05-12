@@ -1,0 +1,3 @@
+## Solución a la octava actividad
+En general, siento que esta unidad fue muy valiosa. Pasar de crear arte generativo en p5.js (que ya me parecía super chevre) a conectarlo con un dispositivo físico como el microbit es un salto grade y a la vez emocionante. La idea de que puedo mover un objeto en mis manos y ver cómo eso afecta algo en la pantalla es muy poderosa y motivadora. Aprendí conceptos y técnicas que siento que son una base sólida para muchos proyectos futuros, especialmente si quiero explorar la interacción física o el Internet de las Cosas. 
+Creo que se podría poner un énfasis un poco mayor y quizás dedicar un espacio más extendido a la depuración de la comunicación serial. Fue la parte donde sentí que podía quedarme trabada más fácilmente.
