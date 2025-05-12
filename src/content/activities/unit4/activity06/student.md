@@ -7,7 +7,6 @@ En el micro:bit:
 ```Python
 data = "{},{},{},{}\n".format(xValue, yValue, aState,bState) # Define la estructura del mensaje
 uart.write(data) # Envía el mensaje siguiendo la estructura definida
-Fragmento de mi código (p5.js):
 ```  
 En p5.js:
 ``` js
@@ -34,7 +33,7 @@ Estos dos comportamientos son muy diferentes. Una máquina de estados me permite
 
 ### 5) ¿Cómo se formatean los datos en el micro:bit para ser enviados por el puerto serial?
 En el micro:bit, los datos (en el caso de esta unidad, los valores de acelerómetro y los estados booleanos ```aState```, ```bState```) se convierten en una única cadena de texto. Se utiliza el método ```.format()``` de una cadena para insertar estos valores en una plantilla que contiene marcadores de posición (```{}```). Entre estos marcadores, se colocan comas (```,```) que se convierten en parte de la cadena final, separando los valores. ya al final de la cadena se añade un carácter de salto de línea (```\n```) para indicar el fin del mensaje.
-``` python
+```python
 xValue = accelerometer.get_x()
 yValue = accelerometer.get_y()
 aState = button_a.is_pressed()
