@@ -75,3 +75,9 @@ Pensé en cómo el micro:bit formatea estos datos y cómo se convierten a bytes.
 ```"123,756,False,True\n"``` Luego, esta cadena se envía como una secuencia de bytes codificados, usando la codificación ASCII. Donde cada carácter se convierte a su valor ASCII correspondiente en hexadecimal
 Entonces, los bytes que se enviarían por el puerto serial en formato hexadecimal serían:
 ```31 32 33 2C 37 35 36 2C 46 61 6C 73 65 2C 54 72 75 65 0A```
+
+### 12) ¿Qué aprendiste nuevo del micro:bit que no sabías antes?
+Profundicé acerca de la diferencia importante entre is_pressed() y was_pressed() para detectar si un botón está presionado ahora versus si acaba de ser presionado y soltado, lo cual es clave para manejar eventos de botón. Así como la naturaleza del tipo de comunicación serial que utiliza el microbit.
+
+### 13) ¿Qué aprendiste nuevo de p5.js que no sabías antes?
+Descubrí funciones como createSerial(), port.open(), port.opened(, port.close(), port.availableBytes(), y port.readUntil("\n"). También reforcé mi comprensión sobre cómo implementar máquinas de estados en p5.js usando variables de estado y la estructura switch dentro de draw() para controlar el flujo de la aplicación basado en eventos externos (como la conexión serial)
