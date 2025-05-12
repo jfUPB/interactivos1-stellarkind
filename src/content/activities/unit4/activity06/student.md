@@ -47,5 +47,18 @@ uart.write(data)
 ### 6) ¿Qué significa que los datos enviados por el micro:bit están codificados en ASCII?
 Significa que la cadena de texto que el micro:bit crea (```"123,756,False,True\n"``` por ejemplo) se envía a través del cable serial como una secuencia de números. Cada carácter de la cadena original (como '1', '2', '3', ',', 'F', 'a', etc., y el salto de línea ```\n```) se representa por un número estándar específico según la tabla de codificación ASCII.
 
-### 7) ¿Por qué es necesario en la aplicación de p5.js preguntar si hay bytes disponibles en el puerto serial antes de leerlos?
+### 7) ¿Por qué es necesario en la aplicación de p5.js preguntar si hay bytes disponibles en el puerto serial antes de leerlos? ¿Qué pasa si esto no se hace?
 Es necesario preguntar si hay bytes disponibles (```if (port.availableBytes() > 0)```) antes de llamar a ```port.readUntil("\n")``` porque ```readUntil()``` es una función que pausa la ejecución del sketch. Entonces usar ```if (port.availableBytes() > 0)```, asegura de que solo intento leer datos si sé primero que al menos ha llegado algo. Esto evita que el sketch se pegue si no hay actividad serial en un momento dado.
+
+### 8) ¿Cómo se elimina el retorno de carro o salto de línea de un string en p5.js?  
+según lo que he visto(aunque no me termina de quedar muy claro que es), para eliminar el retorno de carro (```\r```, que a veces acompaña al salto de línea ```\n``` dependiendo del sistema operativo) y el salto de línea, así como cualquier otro espacio en blanco al inicio o al final de una cadena, se usa el método ```.trim()``` de la cadena.
+
+```js
+let data = port.readUntil("\n"); // Leo la cadena, incluyendo el \n
+if (data) {
+  data = data.trim(); // Elimino el \n y otros espacios al inicio/fin
+  // ... ahora 'data' no tiene el \n al final ...
+}
+```
+
+### 9) 
