@@ -67,13 +67,13 @@
       { "nombre": "actividad05", "estado": "En progreso", "fase": "apply", "aprobado": "no" },
       { "nombre": "actividad06", "estado": "Completada", "fase": "reflect", "aprobado": "no" },
       { "nombre": "actividad07", "estado": "Completada", "fase": "reflect", "aprobado": "no" },
-      { "nombre": "actividad08", "estado": "En progreso", "fase": "reflect", "aprobado": "no" }
+      { "nombre": "actividad08", "estado": "Completada", "fase": "reflect", "aprobado": "no" }
     ]
   },
   {
     "nombre": "Unidad 5",
     "actividades": [
-      { "nombre": "actividad01", "estado": "No iniciada", "fase": "set", "aprobado": "no" },
+      { "nombre": "actividad01", "estado": "En progreso", "fase": "set", "aprobado": "no" },
       { "nombre": "actividad02", "estado": "No iniciada", "fase": "seek", "aprobado": "no" },
       { "nombre": "actividad03", "estado": "No iniciada", "fase": "seek", "aprobado": "no" },
       { "nombre": "actividad04", "estado": "No iniciada", "fase": "apply", "aprobado": "no" },
