@@ -17,3 +17,7 @@ let values = data.split(","); // Divide el mensaje en partes usando la coma como
 // ...
 if (values.length == 4) { /* ... */ } // Verifica si la estructura del mensaje es correcta (4 partes)
 ```
+### 2) ¿Por qué se separan los datos con comas en el protocolo ASCII que exploramos?
+Las comas se usan paraa delimitar, estas le indican al programa que recibe: "Aquí termina un dato y el siguiente empieza justo después". Esto es fundamental para poder separar la única cadena de texto que llega por el serial en los diferentes valores individuales que necesito procesar en p5.js.
+
+### 3) ¿Por qué es necesario terminar los datos con un carácter que marque el fin del mensaje?
