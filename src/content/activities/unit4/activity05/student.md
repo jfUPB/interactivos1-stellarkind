@@ -46,19 +46,38 @@ function setup() {
   
   // Configuración de la conexión serial
   port = createSerial();
-  connectBtn = createButton("Connect to micro:bit");
-  connectBtn.position(10, 10);
+  
+  // Crear botón de conexión con estilo
+  connectBtn = createButton("Conectar micro:bit");
+  connectBtn.position(20, 20);
+  connectBtn.style('padding', '10px 15px');
+  connectBtn.style('background-color', '#4CAF50');
+  connectBtn.style('color', 'white');
+  connectBtn.style('border', 'none');
+  connectBtn.style('border-radius', '4px');
+  connectBtn.style('font-size', '16px');
   connectBtn.mousePressed(connectBtnClick);
   
   // Inicialización del patrón generativo
-  initializePattern();
+  initializePattern(width/2, height/2);
 }
 
 function connectBtnClick() {
   if (!port.opened()) {
-    port.open("MicroPython", 115200);
+    port.open("MicroPython", 115200).then(() => {
+      microBitConnected = true;
+      connectBtn.html("Desconectar micro:bit");
+      connectBtn.style('background-color', '#f44336');
+      console.log("Micro:bit conectado");
+    }).catch(err => {
+      console.error("Error al conectar:", err);
+    });
   } else {
     port.close();
+    microBitConnected = false;
+    connectBtn.html("Conectar micro:bit");
+    connectBtn.style('background-color', '#4CAF50');
+    console.log("Micro:bit desconectado");
   }
 }
 
@@ -97,16 +116,22 @@ function initializePattern(x = width/2, y = height/2) {
 }
 
 function updateButtonStates(newAState, newBState) {
-  // Botón A presionado: cambiar paleta de colores
+  // Botón A presionado: activa el modo dibujo (como clic sostenido)
   if (newAState === true && prevMicroBitAState === false) {
+    console.log("Botón A presionado - Iniciando dibujo");
+  }
+  
+  // Botón A liberado: detiene el modo dibujo
+  if (newAState === false && prevMicroBitAState === true) {
+    console.log("Botón A liberado");
+  }
+  
+  // Botón B presionado: cambiar paleta de colores
+  if (newBState === true && prevMicroBitBState === false) {
     palette = random(palettes);
     bkg = palette[0];
     palette = palette.slice(1);
-  }
-  
-  // Botón B presionado: reiniciar patrón en posición actual
-  if (newBState === true && prevMicroBitBState === false) {
-    initializePattern(microBitX, microBitY);
+    console.log("Botón B presionado - Cambiando paleta de colores");
   }
   
   prevMicroBitAState = newAState;
@@ -120,10 +145,8 @@ function windowResized() {
 function draw() {
   // Manejo de la conexión serial
   if (!port.opened()) {
-    connectBtn.html("Connect to micro:bit");
     microBitConnected = false;
   } else {
-    connectBtn.html("Disconnect");
     microBitConnected = true;
     
     // Leer datos del micro:bit
@@ -150,7 +173,10 @@ function draw() {
       background(50);
       textAlign(CENTER, CENTER);
       fill(255);
-      text("Waiting for micro:bit connection...", width/2, height/2);
+      textSize(24);
+      text("Esperando conexión con micro:bit...", width/2, height/2);
+      textSize(16);
+      text("Presiona el botón 'Conectar micro:bit'", width/2, height/2 + 40);
       
       if (microBitConnected) {
         appState = STATES.RUNNING;
@@ -164,11 +190,19 @@ function draw() {
       }
       
       // Actualizar el centro del patrón con los datos del acelerómetro
-      cnter.x = lerp(cnter.x, microBitX, 0.05);
-      cnter.y = lerp(cnter.y, microBitY, 0.05);
+      cnter.x = lerp(cnter.x, microBitX, 0.1);
+      cnter.y = lerp(cnter.y, microBitY, 0.1);
       
       // Dibujar el patrón generativo
       drawPattern();
+      
+      // Si el botón A está presionado, continuar generando el patrón
+      if (microBitAState) {
+        generatePatternStep();
+      }
+      
+      // Mostrar información de estado
+      drawStatusInfo();
       break;
   }
 }
@@ -190,13 +224,21 @@ function drawPattern() {
     }
     endShape();
   }
+}
+
+function drawStatusInfo() {
+  // Mostrar información de conexión y controles
+  fill(0, 100);
+  noStroke();
+  rect(10, 60, 300, 100, 5);
   
-  // Generar nuevo patrón
-  if (!finished) {
-    for (let ibatch = 0; ibatch < batchSize; ibatch++) {
-      generatePatternStep();
-    }
-  }
+  fill(255);
+  textSize(14);
+  textAlign(LEFT);
+  text(`Estado: ${microBitConnected ? "Conectado" : "Desconectado"}`, 20, 80);
+  text(`Posición: ${floor(cnter.x)}, ${floor(cnter.y)}`, 20, 100);
+  text(`Botón A: ${microBitAState ? "Presionado" : "No presionado"}`, 20, 120);
+  text(`Botón B: ${microBitBState ? "Presionado" : "No presionado"}`, 20, 140);
 }
 
 function generatePatternStep() {
@@ -274,6 +316,7 @@ function generatePatternStep() {
   }
 }
 
+// Funciones auxiliares del patrón generativo (se mantienen igual)
 function addToDS(obj) {
   let mbr = MBR.fromRect(obj.p.x - d, obj.p.y - d, d * 2, d * 2);
   if (obj.free) {
@@ -300,22 +343,16 @@ function* neighborsWithin(p, dmax) {
 
 function addRing() {
   rings++;
-
   let r = d * rings;
   let perimeter = TAU * r;
   let n = floor(perimeter / d);
   let dAng = TAU / n;
   let ang = random(TAU);
   let v = createVector(r, 0);
-  //print ({r,d,perimeter,ang,dAng,n,v})
+
   for (let i = 0; i < n; i++) {
     let p = cnter.copy().add(v.copy().rotate(ang));
-    // freePos.push ({p,
-    // 							 center: cnter, ring:rings, ang});
-    if (
-      searchDS.mbr.contains(p, d / 2) &&
-      neighborsWithin(p, d - 0.1).next().done
-    ) {
+    if (searchDS.mbr.contains(p, d / 2) && neighborsWithin(p, d - 0.1).next().done) {
       addToDS({
         p,
         center: cnter,
@@ -328,93 +365,6 @@ function addRing() {
   }
 }
 
-function draw() {
-  background(bkg);
-  noFill();
-  strokeJoin(ROUND);
-  strokeWeight(d / 2);
-  let icolor = 0;
-  for (let trail of trails) {
-    stroke(palette[icolor]);
-    icolor = (icolor + 1) % palette.length;
-    beginShape();
-    for (let p of trail) {
-      vertex(p.x, p.y);
-    }
-    endShape();
-  }
-  for (let ibatch = 0; ibatch < batchSize; ibatch++) {
-    if (finished) return;
-
-    let placed = false;
-    let tries = 0;
-    let bestDist = Infinity,
-      best = -1;
-    let lastPos = last.p;
-    while (!placed && tries++ < 2) {
-      if (freePos.length == 0) {
-        if (random() < 0.4) {
-          do {
-            if (candPoints.length == 0) {
-              finished = true;
-              return;
-            }
-            cnter = candPoints.pop();
-          } while (!neighborsWithin(cnter, d - 0.1).next().done);
-          rings = 0;
-        }
-        addRing();
-        addRing();
-      }
-      for (let neigh of freeNeighbors(lastPos, d * 2)) {
-        //let {p,ang,ring} = freePos[i];
-        let p = neigh.p;
-        let dlast = p.dist(lastPos);
-        if (dlast < bestDist) {
-          best = neigh;
-          bestDist = dlast;
-          placed = true;
-        }
-      }
-    }
-    if (!placed) {
-      if (freePos.length == 0) return;
-      best = freePos.pop();
-      bestDist = best.p.dist(lastPos);
-    } else {
-      let k = freePos.length - 1;
-      freePos[best.index] = freePos[k];
-      freePos[best.index].index = best.index;
-      freePos.pop();
-    }
-    let prev = last;
-    last = best;
-    last.free = false;
-    if (bestDist < d * 1.42) {
-      if (prev.ring != last.ring || prev.center != last.center)
-        trails[trails.length - 1].push(last.p);
-      else {
-        let ang0 = (prev.ang + TAU) % TAU;
-        let ang1 = (last.ang + TAU) % TAU;
-        let dang = ang1 - ang0;
-        if (dang < -PI) {
-          dang = ang1 + TAU - ang0;
-        } else if (dang > PI) {
-          dang = ang1 - ang0 - TAU;
-        }
-        let n = int(abs(dang) / radians(1));
-        dang /= n;
-        let c = prev.center;
-        let v = createVector(d * prev.ring, 0).rotate(ang0);
-        for (let i = 0; i < n; i++) {
-          v.rotate(dang);
-          trails[trails.length - 1].push(c.copy().add(v));
-        }
-      }
-    } else trails.push([last.p]);
-  }
-}
-
 function keyPressed() {
   if (key === 's' || key === 'S') {
     saveCanvas('generative_pattern', 'png');
@@ -424,9 +374,10 @@ function keyPressed() {
   }
 }
 ```
-Cabe aclarar que hay otros archivos .js que utiliza el sketch, de los cuales provenientes de mi version original del sketch quedaron igualitos, lo unico que cambié fue el index.hmtl para agregar la librería para establecer la conexión serial.
+Cabe aclarar que hay otros archivos .js que utiliza el sketch, de los cuales provenientes de mi version original del sketch quedaron igualitos, lo unico que cambié fue el index.hmtl para agregar la librería para establecer la conexión serial. Y de hecho esta versión modificada quedó aún más alejada del programa original de [Multi Circle Maze por CLAUDIO ESPERANÇA](https://openprocessing.org/sketch/2470557), pero de hecho me gusta más porque permite mayor control por parte del usuario sobre lo que sea que dibuje en el canvas gracias al acelerómetro y a que introduce la opción de dibujar manteniendo presionado.
 
 ### La aplicación modificada para trabajar con el micro:bit
 [Multi Circle Maze Por Stella V.2.0](https://editor.p5js.org/stellarkind/full/u6qdUxxPt)
 
 ### Canvas con la aplicación en su versión 2.0:
+![image](https://github.com/user-attachments/assets/6f46feac-98db-48ba-a335-e5bbe8e5bad7)
