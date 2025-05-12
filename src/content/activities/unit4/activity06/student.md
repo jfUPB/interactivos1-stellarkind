@@ -25,9 +25,24 @@ Es necesario porque a pesar que los datos llegan como un flujo continuo de bytes
 Mi código en p5.js usa una función que espera específicamente este carácter para saber que ya ha leído una línea completa de datos (```port.readUntil("\n")```). Si el micro:bit no enviara el ```\n```, el sketch de p5.js seguiría leyendo indefinidamente sin saber cuándo detenerse para procesar un mensaje completo, lo que podría causar que se quede esperando o que procese datos incompletos, que incluso tomando esta precaución a veces pasa que el/los canales se saturan y p5.js no puede procesarlos.
 
 ### 4) ¿Por qué fue necesario usar una máquina de estados en la aplicación modificada de p5.js?
-Fue necesario usar una máquina de estados porque la aplicación tiene diferentes modos de operación que dependen de si el micro:bit está conectado o no. 
+Fue necesario usar una máquina de estados porque la aplicación tiene diferentes modos de operación que dependen de si el micro:bit está conectado o no.   
+Por ejemplo:
 - En el estado (```WAIT_MICROBIT_CONNECTION```), el sketch solo debe esperar y mostrar un mensaje de conexión.
 - En otro estado (```RUNNING```), el sketch debe leer activamente los datos del micro:bit, usar esos datos para el dibujo generativo y responder a los botones del micro:bit.
-Estos dos comportamientos son muy distintos. Una máquina de estados me permite organizar mi código para que la lógica de ```draw()``` solo ejecute el código relevante para el estado actual y gestione las transiciones entre estados.
 
-### 5) 
+Estos dos comportamientos son muy diferentes. Una máquina de estados me permite organizar mi código para que la lógica de ```draw()``` solo ejecute el código relevante para el estado actual y gestione las transiciones entre estados.
+
+### 5) ¿Cómo se formatean los datos en el micro:bit para ser enviados por el puerto serial?
+En el micro:bit, los datos (en el caso de esta unidad, los valores de acelerómetro y los estados booleanos ```aState```, ```bState```) se convierten en una única cadena de texto. Se utiliza el método ```.format()``` de una cadena para insertar estos valores en una plantilla que contiene marcadores de posición (```{}```). Entre estos marcadores, se colocan comas (```,```) que se convierten en parte de la cadena final, separando los valores. ya al final de la cadena se añade un carácter de salto de línea (```\n```) para indicar el fin del mensaje.
+``` python
+xValue = accelerometer.get_x()
+yValue = accelerometer.get_y()
+aState = button_a.is_pressed()
+bState = button_b.is_pressed()
+# Los valores se insertan en la cadena plantilla
+data = "{},{},{},{}\n".format(xValue, yValue, aState,bState)
+# La cadena resultante se envía
+uart.write(data)
+```
+
+### 6) ¿Qué significa que los datos enviados por el micro:bit están codificados en ASCII?
