@@ -61,4 +61,13 @@ if (data) {
 }
 ```
 
-### 9) 
+### 9) Si una cadena tiene información separada por espacios y quieres dividir dicha información en varias cadenas individuales ¿Qué función de p5.js usarías?
+```js
+// En mi sketch, uso split para dividir por comas:
+let values = data.split(","); // Divide la cadena 'data' donde encuentra ',' y guarda las partes en el array 'values'
+```
+
+### 10) ¿Por qué es necesario en la aplicación del caso de estudio convertir las cadenas a números enteros antes de usarlas en el sketch de p5.js?
+Es necesario convertirlas porque los datos que se reciben del micro:bit son caracteres ASCII. Y aunque visualmente se ve como un número, en JavaScript/p5.js es una secuencia de caracteres, no un valor numérico con el que pueda hacer operaciones matemáticas. Es así que ```int()``` toma la cadena ```"969"```(por ejemplo) y la convierte en el número entero ```969```. Esto es necesario para poder usar los valores del acelerómetro como coordenadas en el lienzo o en cualquier cálculo numérico.
+
+### 11) Si el micro:bit tiene los siguientes datos xValue: 123, yValue: 756, aState: False, bState: True ¿Qué bytes se enviarían por el puerto serial?
