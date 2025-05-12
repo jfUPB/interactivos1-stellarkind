@@ -71,3 +71,7 @@ let values = data.split(","); // Divide la cadena 'data' donde encuentra ',' y g
 Es necesario convertirlas porque los datos que se reciben del micro:bit son caracteres ASCII. Y aunque visualmente se ve como un número, en JavaScript/p5.js es una secuencia de caracteres, no un valor numérico con el que pueda hacer operaciones matemáticas. Es así que ```int()``` toma la cadena ```"969"```(por ejemplo) y la convierte en el número entero ```969```. Esto es necesario para poder usar los valores del acelerómetro como coordenadas en el lienzo o en cualquier cálculo numérico.
 
 ### 11) Si el micro:bit tiene los siguientes datos xValue: 123, yValue: 756, aState: False, bState: True ¿Qué bytes se enviarían por el puerto serial?
+Pensé en cómo el micro:bit formatea estos datos y cómo se convierten a bytes. El micro:bit primero crea la cadena de texto:
+```"123,756,False,True\n"``` Luego, esta cadena se envía como una secuencia de bytes codificados, usando la codificación ASCII. Donde cada carácter se convierte a su valor ASCII correspondiente en hexadecimal
+Entonces, los bytes que se enviarían por el puerto serial en formato hexadecimal serían:
+```31 32 33 2C 37 35 36 2C 46 61 6C 73 65 2C 54 72 75 65 0A```
