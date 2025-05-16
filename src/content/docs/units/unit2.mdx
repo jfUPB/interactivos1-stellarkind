@@ -8,8 +8,26 @@ import unidades from '../../activities/unidades.json';
 
 export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
+## Introducción
+
+En esta unidad, daremos un salto crucial en tu formación como ingeniero en diseño de entretenimiento 
+digital: adentrándonos en el fascinante mundo de los microcontroladores y la programación con Micropython 
+utilizando la tarjeta micro:bit. Aprenderás a controlar el flujo de información en un sistema interactivo,
+a través del manejo de entradas y salidas, y a construir la lógica de estos sistemas utilizando el paradigma 
+de máquinas de estado finitas. Dominarás conceptos como estados, eventos, transiciones y acciones, y los 
+aplicarás para crear sistemas interactivos que respondan a estímulos externos y ejecuten acciones predefinidas.
+
+El enfoque de esta unidad es 100% práctico. A través de una serie de experimentos y desafíos progresivos, 
+irás construyendo una base sólida en la programación de microcontroladores, culminando con el diseño e 
+implementación de una bomba temporizada para un hipotético escape room. 
 
 ## ¿Qué aprenderás en esta unidad?
+
+Antes de sumergirnos en la programación de microcontroladores, es fundamental establecer una base 
+sólida y definir objetivos claros. En esta fase, reflexionarás sobre la importancia de los microcontroladores 
+en el contexto del diseño de entretenimiento digital y establecerás una meta SMART personal para guiar tu 
+aprendizaje a lo largo de la unidad. Este proceso te permitirá conectar con el propósito de la unidad 
+y enfocar tus esfuerzos de manera efectiva.
 
 {unit.actividades
   .filter(act => act.fase === "set")
@@ -23,6 +41,13 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
 ## Investigación
 
+¡Es hora de explorar! En esta fase, te convertirás en un investigador activo, buscando y 
+experimentando con los conceptos fundamentales de la programación de microcontroladores 
+con Micropython en la tarjeta micro:bit. Aprenderás a identificar y manipular las entradas 
+y salidas de la micro:bit, a leer datos seriales, a generar sonidos y visualizar información 
+en la pantalla LED. Investigarás sobre las máquinas de estado y analizarás ejemplos de 
+código para comprender su funcionamiento.
+
 {unit.actividades
   .filter(act => act.fase === "seek")
   .map(act => (
@@ -35,6 +60,11 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
 
 ## Aplicación
 
+¡Pon a prueba tus conocimientos! En esta fase, aplicarás todo lo aprendido en la fase anterior 
+para construir sistemas interactivos con la micro:bit. Implementarás un semáforo, controlarás la 
+pantalla con concurrencia utilizando máquinas de estados y, finalmente, diseñarás e implementarás 
+el sistema de control de una bomba temporizada, integrando todos los conceptos aprendidos en la unidad.
+
 {unit.actividades
   .filter(act => act.fase === "apply")
   .map(act => (
@@ -45,7 +75,15 @@ export const unit = unidades.find(u => u.nombre === frontmatter.title);
   ))
 }
 
-## Consolidación y matacognión
+## Consolidación y metacognición
+
+El aprendizaje no termina con la aplicación. En esta fase crucial, reflexionarás sobre tus 
+decisiones de diseño, analizarás tu proceso de aprendizaje y documentarás tus experiencias. 
+Evaluarás críticamente el diseño de la bomba temporizada, realizarás pruebas exhaustivas 
+para identificar y corregir errores, y finalmente, reflexionarás sobre tu aprendizaje en 
+la unidad, conectándolo con tus metas a largo plazo como ingeniero en diseño de entretenimiento 
+digital. Este proceso de metacognición te permitirá consolidar tu aprendizaje y prepararte 
+para futuros desafíos.
 
 {unit.actividades
   .filter(act => act.fase === "reflect")
