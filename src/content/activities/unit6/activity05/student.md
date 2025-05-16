@@ -14,4 +14,9 @@ Mi plan de implementación:
      - Hay que crear los archivos ```page3.html``` y ```page3.js```.
      - Cada cliente mantendrá su propio estado (```currentPageData```) y calculará su centro (```myPoint```).
      - Cada cliente debería mantener un almacenamiento local para los datos de todos los clientes, que se actualice por los mensajes del servidor.
-     - Debería modificar el código de conexión 
+     - Debería modificar el código de conexión para qu mande un mensage de registro (```'register page'```) al conectarse que indique si es la página 1, 2 o 3.
+     - Toca modificar también el código de ```checkWindowPosition``` para emitir el evento ```'page_update'``` en lugar de ```win1/2update```.
+     - Toca modificar el oyente de recepción de datos del servidor (antes ```'getdata'```, ahora sería ```'all_pages_data'```) para actualizar el almacenamiento de los datos de todos los clientes (```allClientData```) y el ID del último emisor (```lastUpdatedSenderId```).
+     - Para modificar en la funció ```draw()```:
+     - Limpiar el fondo.
+     - Iterar sobre los datos de todos los clientes en ```allClientData```,
