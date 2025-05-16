@@ -92,7 +92,7 @@
       { "nombre": "actividad05", "estado": "Completada", "fase": "apply", "aprobado": "no" },
       { "nombre": "actividad06", "estado": "Completada", "fase": "reflect", "aprobado": "no" },
       { "nombre": "actividad07", "estado": "Completada", "fase": "reflect", "aprobado": "no" },
-      { "nombre": "actividad08", "estado": "En progreso", "fase": "reflect", "aprobado": "no" }
+      { "nombre": "actividad08", "estado": "Completada", "fase": "reflect", "aprobado": "no" }
     ]
   },
   {
