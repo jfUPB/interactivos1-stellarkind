@@ -28,10 +28,17 @@ Vi otro mensaje ```A user connected - ID: JEgvOpyiNRqP6CE3AAAD```
  ```User disconnected - ID: PHT2cqq6VIU1I2isAAAB``` es el mensaje en la terminal, efectivmente coincide con el primer usuario, el de page1.
  
 ###  Cierra la pestaña de page2. Observa la terminal.
- Vi el mensaje ```User disconnected - ID: JEgvOpyiNRqP6CE3AAAD```. También coincidía.
+Vi el mensaje ```User disconnected - ID: JEgvOpyiNRqP6CE3AAAD```. También coincidía.
 
+### Mueve la ventana de page1. Observa la terminal del servidor. ¿Qué evento se registra (win1update o win2update)? ¿Qué datos (Data:) ves?
 Me aseguré de que los console.log estuvieran en mi server.js. Inicié el servidor y abrí page1 y page2.
-Moví la ventana de page1. En la terminal del servidor, vi mensajes como Received win1update from ID: PHT2cqq6VIU1I2isAAAB Data: { x: ..., y: ..., width: ..., height: ... }. Se registró el evento win1update con los datos de posición y tamaño de esa ventana.
+Moví la ventana de page1. En la terminal del servidor, vi mensajes como ```Received win1update from ID: PHT2cqq6VIU1I2isAAAB Data: { x: ..., y: ..., width: ..., height: ... }```. Donde se registró el evento win1update con los datos de posición y tamaño de esa ventana.
 
-Moví la ventana de page2. Vi mensajes como Received win2update from ID: JEgvOpyiNRqP6CE3AAAD Data: { x: ..., y: ..., width: ..., height: ... }. Se registró el evento win2update con los datos de la ventana 2.
+### Mueve la ventana de page2. Observa la terminal. ¿Qué evento se registra ahora? ¿Qué datos ves?
+Moví la ventana de page2. Vi mensajes como Received win2update from ```ID: JEgvOpyiNRqP6CE3AAAD Data: { x: ..., y: ..., width: ..., height: ... }```. Se registró el evento win2update con los datos de la ventana 2.
 
+### Ahora, el experimento clave: 
+Detuve el servidor. Cambié ```socket.broadcast.emit('getdata', page1);``` por ```socket.emit('getdata', page1);``` en el manejador de win1update (y no lo hice en el de win2update para ver la diferencia). Reinicié el servidor, abrí ambas páginas. Moviendo page1. page2 no se ve ¿por qué? ```socket.emit()``` envía un mensaje SOLO al cliente asociado con ese objeto socket (es decir, al cliente que envió el mensaje win1update en este caso). ```socket.broadcast.emit()``` envía el mensaje a todos los demás clientes conectados MENOS al que lo envió. Como quité broadcast en el manejador de win1update, el servidor recibía el dato de page1, pero luego intentaba enviárselo de vuelta a page1 misma (socket.emit), no a page2. Por eso page2 no se enteraba del movimiento.
+
+### Detén el servidor. Cambia ```const port = 3000;``` a ```const port = 3001;```. Inicia el servidor. ¿Qué mensaje ves en la consola? ¿En qué puerto dice que está escuchando?
+En la consola, el mensaje de inicio cambió a ```Server is listening on http://localhost:3001```. Al intentar abrir ```http://localhost:3000/page1``` no se pudo, el navegador no pudo conectarse porque no había nada escuchando en el puerto 3000. Entonces intenté abrir ```http://localhost:3001/page1``` y el navegador se conectó al servidor en el puerto 3001 y me entregó la página. Asumo entoncs que la variable ```port``` define el número del puerto en el que mi servidor va a operar, y ```server.listen()``` es la función que lo pone a "escuchar" en ese puerto específico.
