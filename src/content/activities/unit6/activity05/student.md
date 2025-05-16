@@ -11,3 +11,7 @@ Mi plan de implementación:
      - Añadir un evento para que cada cliente se identifique (```page1```, ```page2``` o ```page3```), lo que ayudaría a mapear el ```socket.id``` según su tipo de página.
      - Hay que transmitir a todos los clietes un mensaje que contenga el estado actual de todos los clientes conectados, que incluya el ```socket.id``` del cliente qe envió la última actualización.
   2. Para los clientes (```page1```, ```page2```, ```page3```):
+     - Hay que crear los archivos ```page3.html``` y ```page3.js```.
+     - Cada cliente mantendrá su propio estado (```currentPageData```) y calculará su centro (```myPoint```).
+     - Cada cliente debería mantener un almacenamiento local para los datos de todos los clientes, que se actualice por los mensajes del servidor.
+     - Debería modificar el código de conexión 
