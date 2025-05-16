@@ -163,7 +163,7 @@ server.listen(port, () => {
     console.log(`Server is listening on http://localhost:${port}`);
 });
 ```
-```page1.js```: (Los archivos ```page2.js``` y ```page3.js``` son casi idénticos, cambiando solo el valor de ```myPageId```)
+```page1.js```: (Los archivos ```page2.js``` y ```page3.js``` son casi idénticos, cambiando solo el valor de ```myPageId```)  
 ``` js
 // page1.js (Cliente para la Constelación Interactiva)
 
@@ -402,8 +402,8 @@ function windowResized() {
    socket.emit('page_update', currentPageData);
 }
 ```
-```page2.js```: (el código de ```page1.js``` cambia de ```const myPageId = 'page1';``` a ```const myPageId = 'page2';```)
-```page3.js```: (el código de ```page1.js``` cambia de ```const myPageId = 'page1';``` a ```const myPageId = 'page3';```)
+```page2.js```: (el código de ```page1.js``` cambia de ```const myPageId = 'page1';``` a ```const myPageId = 'page2';```)  
+```page3.js```: (el código de ```page1.js``` cambia de ```const myPageId = 'page1';``` a ```const myPageId = 'page3';```)  
 ### Reflexión sobre el Proceso de Modificación:
 
 #### ¿Qué fue fácil?
