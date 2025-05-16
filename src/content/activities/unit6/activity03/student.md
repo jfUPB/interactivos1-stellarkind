@@ -10,9 +10,28 @@ Al hacer eso básicamente no funcionó, me sale un error de que no encuentra a `
 Volví a dejar la línea como estaba (```'views'```) y verifiqué que ```http://localhost:3000/page1.html``` funcionara de nuevo. Sí, funcionó correctamente, por lo que eniendo que la función ```express.static()``` es crucial para decirle al servidor desde qué carpeta debe entregar los archivos directamente cuando el navegador los pide, y que la ruta especificada debe ser correcta.  
 
 ### Al intentar acceder a ```http://localhost:3000/page1```. ¿Funciona?
+Detuve el servidor. Cambié la primera ruta de ```/page1``` a ```/pagina_uno```. Inicié el servidor. Intenté acceder a ```http://localhost:3000/page1```. No funcionó. Vi un error 404 Not Found en el navegador.
 
 ### Al intentar acceder a ```http://localhost:3000/pagina_uno```. ¿Funciona?
+Luego intenté acceder a ```http://localhost:3000/pagina_uno```. Esta sí funcionó.
 
 ### ¿Qué te dice esto sobre cómo el servidor asocia URLs con respuestas? Restaura el código.
+Esto me mostró muy claramente que el servidor solo responderá a las rutas que yo defina explícitamente con ```app.get()```. Si el navegador pide una ruta que no está definida, el servidor no sabe qué hacer o no encuentra esa ruta definida.
 
+### Abre http://localhost:3000/page1 en una pestaña. Observa la terminal del servidor. ¿Qué mensaje ves?
+En la terminal del servidor, vi el mensaje ```A user connected - ID: PHT2cqq6VIU1I2isAAAB```
+
+### Abre http://localhost:3000/page2 en otra pestaña. Observa la terminal del servidor. ¿Qué mensaje ves? ¿El ID es diferente?
+Vi otro mensaje ```A user connected - ID: JEgvOpyiNRqP6CE3AAAD```
+
+### Cierra la pestaña de page1. Observa la terminal. ¿Qué mensaje ves? ¿Coincide el ID con el que anotaste?
+ ```User disconnected - ID: PHT2cqq6VIU1I2isAAAB``` es el mensaje en la terminal, efectivmente coincide con el primer usuario, el de page1.
+ 
+###  Cierra la pestaña de page2. Observa la terminal.
+ Vi el mensaje ```User disconnected - ID: JEgvOpyiNRqP6CE3AAAD```. También coincidía.
+
+Me aseguré de que los console.log estuvieran en mi server.js. Inicié el servidor y abrí page1 y page2.
+Moví la ventana de page1. En la terminal del servidor, vi mensajes como Received win1update from ID: PHT2cqq6VIU1I2isAAAB Data: { x: ..., y: ..., width: ..., height: ... }. Se registró el evento win1update con los datos de posición y tamaño de esa ventana.
+
+Moví la ventana de page2. Vi mensajes como Received win2update from ID: JEgvOpyiNRqP6CE3AAAD Data: { x: ..., y: ..., width: ..., height: ... }. Se registró el evento win2update con los datos de la ventana 2.
 
