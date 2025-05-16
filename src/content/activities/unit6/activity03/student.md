@@ -18,10 +18,10 @@ Luego intenté acceder a ```http://localhost:3000/pagina_uno```. Esta sí funcio
 ### ¿Qué te dice esto sobre cómo el servidor asocia URLs con respuestas? Restaura el código.
 Esto me mostró muy claramente que el servidor solo responderá a las rutas que yo defina explícitamente con ```app.get()```. Si el navegador pide una ruta que no está definida, el servidor no sabe qué hacer o no encuentra esa ruta definida.
 
-### Abre http://localhost:3000/page1 en una pestaña. Observa la terminal del servidor. ¿Qué mensaje ves?
+### Abre ```http://localhost:3000/page1 en una pestaña```. Observa la terminal del servidor. ¿Qué mensaje ves?
 En la terminal del servidor, vi el mensaje ```A user connected - ID: PHT2cqq6VIU1I2isAAAB```
 
-### Abre http://localhost:3000/page2 en otra pestaña. Observa la terminal del servidor. ¿Qué mensaje ves? ¿El ID es diferente?
+### Abre ```http://localhost:3000/page2``` en otra pestaña. Observa la terminal del servidor. ¿Qué mensaje ves? ¿El ID es diferente?
 Vi otro mensaje ```A user connected - ID: JEgvOpyiNRqP6CE3AAAD```
 
 ### Cierra la pestaña de page1. Observa la terminal. ¿Qué mensaje ves? ¿Coincide el ID con el que anotaste?
